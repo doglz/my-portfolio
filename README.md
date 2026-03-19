@@ -25,7 +25,7 @@ Este é o meu portfólio pessoal, desenvolvido com tecnologias modernas para cri
 
 1. **Clone o repositório:**
    ```bash
-   git clone [LINK_DO_REPOSITORIO]
+   git clone https://github.com/doglz/my-portfolio.git
    ```
 
 2. **Acesse a pasta do projeto:**
