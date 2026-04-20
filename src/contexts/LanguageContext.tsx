@@ -5,9 +5,9 @@ type Language = "pt" | "en";
 const translations = {
   pt: {
     available: "Disponível para landing pages",
-    heroTitle1: "Criador de",
-    heroTitle2: "Landing Pages",
-    heroDescription: "Crio páginas de captação modernas, rápidas e estratégicas para transformar visitantes em contatos, clientes e oportunidades.",
+    heroTitle1: "Páginas de Captação",
+    heroTitle2: "que Convertem",
+    heroDescription: "Desenvolvo landing pages estratégicas para transformar visitas em contatos, clientes e oportunidades reais para sua marca.",
     viewProjects: "Ver projetos",
     talkToMe: "Fale comigo",
     aboutTag: "// sobre mim",
@@ -42,9 +42,9 @@ const translations = {
   },
   en: {
     available: "Available for landing pages",
-    heroTitle1: "Landing Page",
-    heroTitle2: "Creator",
-    heroDescription: "I create modern, fast, and strategic lead generation pages that turn visitors into contacts, customers, and opportunities.",
+    heroTitle1: "Lead Generation Pages",
+    heroTitle2: "that Convert",
+    heroDescription: "I develop strategic landing pages that turn visits into contacts, customers, and real opportunities for your brand.",
     viewProjects: "View projects",
     talkToMe: "Contact me",
     aboutTag: "// about me",
