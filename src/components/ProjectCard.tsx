@@ -9,16 +9,18 @@ interface ProjectCardProps {
   image: string | null;
   github: string | null;
   live: string;
+  isActive?: boolean;
 }
 
-const ProjectCard = ({ title, description, tags, image, github, live }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, tags, image, github, live, isActive = false }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const isHighlighted = isActive || isHovered;
 
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="h-full transition-all duration-500 ease-out"
+      className="h-full select-none transition-all duration-500 ease-out"
       style={{
         transform: isHovered ? "translateY(-8px)" : "translateY(0)",
       }}
@@ -26,15 +28,15 @@ const ProjectCard = ({ title, description, tags, image, github, live }: ProjectC
       <div
         className="rounded-lg overflow-hidden h-full flex flex-col border transition-all duration-500"
         style={{
-          background: isHovered
+          background: isHighlighted
             ? "linear-gradient(135deg, hsl(var(--card)), hsl(var(--card) / 0.85))"
             : "hsl(var(--card))",
-          backdropFilter: isHovered ? "blur(16px)" : "blur(8px)",
-          WebkitBackdropFilter: isHovered ? "blur(16px)" : "blur(8px)",
-          borderColor: isHovered
+          backdropFilter: isHighlighted ? "blur(16px)" : "blur(8px)",
+          WebkitBackdropFilter: isHighlighted ? "blur(16px)" : "blur(8px)",
+          borderColor: isHighlighted
             ? "hsl(var(--primary) / 0.4)"
             : "hsl(var(--border) / 0.5)",
-          boxShadow: isHovered
+          boxShadow: isHighlighted
             ? "0 8px 32px hsl(var(--primary) / 0.12), inset 0 1px 0 hsl(var(--primary) / 0.1)"
             : "0 2px 8px hsl(var(--background) / 0.3), inset 0 1px 0 hsl(var(--foreground) / 0.03)",
           minHeight: "380px",

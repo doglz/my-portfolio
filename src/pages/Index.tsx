@@ -1,4 +1,4 @@
-import { Github, Instagram, Mail, ExternalLink, ChevronDown, ChevronLeft, ChevronRight, Code2, Layout, Palette, Terminal, GitBranch, FileCode2, Figma, Menu, X, Globe } from "lucide-react";
+import { Github, Instagram, Mail, ExternalLink, ChevronDown, ChevronLeft, ChevronRight, Code2, Layout, Palette, Terminal, GitBranch, FileCode2, Menu, X, Globe, Search, PenLine, Sparkles } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import projectRobuxStation from "@/assets/project-robux-station.png";
 import projectShardServices from "@/assets/project-shard-services.png";
 import projectPortfolio from "@/assets/project-portfolio.png";
+import projectBella from "@/assets/project-bella.png";
+import projectVision from "@/assets/project-vision.png";
 import ProjectCard from "@/components/ProjectCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -31,9 +33,13 @@ const techs = [
   { name: "JavaScript", icon: <Terminal className="w-5 h-5" /> },
   { name: "React", icon: <Code2 className="w-5 h-5" /> },
   { name: "TypeScript", icon: <FileCode2 className="w-5 h-5" /> },
-  { name: "Figma", icon: <Figma className="w-5 h-5" /> },
+  { name: "Tailwind CSS", icon: <Layout className="w-5 h-5" /> },
+  { name: "Vite", icon: <Terminal className="w-5 h-5" /> },
   { name: "Git", icon: <GitBranch className="w-5 h-5" /> },
   { name: "GitHub", icon: <Github className="w-5 h-5" /> },
+  { name: "SEO", icon: <Search className="w-5 h-5" /> },
+  { name: "Copywriting", icon: <PenLine className="w-5 h-5" /> },
+  { name: "Branding", icon: <Sparkles className="w-5 h-5" /> },
 ];
 
 // Generate deterministic particle positions
@@ -49,9 +55,10 @@ const particles = Array.from({ length: 40 }, (_, i) => ({
 const Index = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(true);
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const { language, setLanguage, t } = useLanguage();
 
   const projects = [
@@ -79,12 +86,29 @@ const Index = () => {
       github: null,
       live: "https://douglz.dev",
     },
+    {
+      title: "Bella Glam Design",
+      description: t.projectBellaDesc,
+      tags: ["React", "Tailwind", "Vite"],
+      image: projectBella,
+      github: null,
+      live: "https://bellaglamdesign.vercel.app",
+    },
+    {
+      title: "Studio Vision",
+      description: t.projectVisionDesc,
+      tags: ["React", "Tailwind", "Vite"],
+      image: projectVision,
+      github: null,
+      live: "https://studiovision.site",
+    },
   ];
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setCanScrollPrev(emblaApi.canScrollPrev());
     setCanScrollNext(emblaApi.canScrollNext());
+    setSelectedProjectIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
   useEffect(() => {
@@ -285,9 +309,9 @@ const Index = () => {
           >
             {[
               { val: "1+", label: t.statYear },
-              { val: "PO", label: t.statPO },
-              { val: "UI", label: t.statUI },
-              { val: "∞", label: t.statGrow },
+              { val: "SEO", label: t.statSEO },
+              { val: "Copy", label: t.statCopy },
+              { val: "Brand", label: t.statBranding },
             ].map((item, i) => (
               <motion.div key={i} variants={fadeUp} custom={i}>
                 <Card className="bg-card border-border/50 p-6 hover:border-primary/30 transition-colors duration-300">
@@ -301,7 +325,7 @@ const Index = () => {
       </section>
 
       {/* Skills */}
-      <section id="skills" className="py-32 px-6 bg-secondary/30">
+      <section id="skills" className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -335,11 +359,11 @@ const Index = () => {
               >
                 <Card className="bg-card border-border/50 hover:border-primary/40 hover:shadow-[0_0_20px_hsl(var(--primary)/0.15)] transition-all duration-300 group cursor-default overflow-hidden relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-primary/10 transition-all duration-500" />
-                  <CardContent className="flex items-center gap-4 p-6 relative z-10">
-                    <div className="text-muted-foreground group-hover:text-primary group-hover:rotate-12 transition-all duration-300">
+                  <CardContent className="relative z-10 flex h-20 items-center justify-center gap-2 px-3 py-0 sm:h-auto sm:justify-start sm:gap-4 sm:p-6">
+                    <div className="shrink-0 text-muted-foreground group-hover:text-primary group-hover:rotate-12 transition-all duration-300">
                       {tech.icon}
                     </div>
-                    <span className="font-medium text-sm">{tech.name}</span>
+                    <span className="whitespace-nowrap text-center text-[13px] font-medium sm:text-sm">{tech.name}</span>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -372,18 +396,29 @@ const Index = () => {
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
           >
-            <div className="overflow-visible" ref={emblaRef}>
-              <div className="flex items-stretch gap-6 py-4 -my-4">
+            <div className="overflow-hidden py-10 -my-10 cursor-grab active:cursor-grabbing select-none" ref={emblaRef}>
+              <div className="flex items-stretch -ml-4 sm:-ml-6">
                 {projects.map((project, i) => (
-                  <div key={i} className="flex-[0_0_100%] sm:flex-[0_0_48%] lg:flex-[0_0_33.333%] min-w-0 h-auto">
-                    <ProjectCard
-                      title={project.title}
-                      description={project.description}
-                      tags={project.tags}
-                      image={project.image}
-                      github={project.github}
-                      live={project.live}
-                    />
+                  <div key={i} className="flex-[0_0_100%] sm:flex-[0_0_58%] lg:flex-[0_0_38%] min-w-0 h-auto pl-4 sm:pl-6">
+                    <motion.div
+                      className="mx-auto h-full w-[86%] max-w-[340px] origin-center sm:w-full sm:max-w-none"
+                      animate={{
+                        opacity: selectedProjectIndex === i ? 1 : 0.58,
+                        scale: selectedProjectIndex === i ? 1 : 0.88,
+                        y: selectedProjectIndex === i ? 0 : 18,
+                      }}
+                      transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    >
+                      <ProjectCard
+                        title={project.title}
+                        description={project.description}
+                        tags={project.tags}
+                        image={project.image}
+                        github={project.github}
+                        live={project.live}
+                        isActive={selectedProjectIndex === i}
+                      />
+                    </motion.div>
                   </div>
                 ))}
               </div>
@@ -411,7 +446,7 @@ const Index = () => {
       </section>
 
       {/* Contato */}
-      <section id="contato" className="py-20 sm:py-32 px-4 sm:px-6 bg-secondary/30">
+      <section id="contato" className="py-20 sm:py-32 px-4 sm:px-6">
         <motion.div
           className="max-w-2xl mx-auto text-center"
           initial="hidden"
@@ -440,7 +475,7 @@ const Index = () => {
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full font-semibold gap-2 px-8 transition-all duration-300 hover:scale-[1.02] hover:border-primary/60">
-              <a href="https://www.instagram.com/douglz.dev/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/douglz.code/" target="_blank" rel="noopener noreferrer">
                 <Instagram className="w-4 h-4" /> Instagram
               </a>
             </Button>
