@@ -433,7 +433,7 @@ const Index = () => {
       </motion.nav>
 
       {/* Hero */}
-      <section ref={heroRef} className="min-h-screen flex items-center justify-center relative px-6 overflow-hidden">
+      <section ref={heroRef} className="min-h-screen flex items-start justify-center pt-20 md:items-center md:pt-0 relative px-6 overflow-hidden">
         {/* Particles */}
         <motion.div className="absolute inset-0 pointer-events-none" style={{ y: particlesY }}>
           {particles.map((p) => (

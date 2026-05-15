@@ -1,10 +1,22 @@
-// ...existing code...
+import { defineConfig, devices } from "@playwright/test";
 
-// ...existing code...
-  // Add your custom playwright configuration overrides here
-  // Example:
-  // timeout: 60000,
-  // use: {
-  //   baseURL: 'http://localhost:3000',
-  // },
+export default defineConfig({
+  testDir: "./tests",
+  fullyParallel: true,
+  reporter: "html",
+  use: {
+    baseURL: "http://localhost:4173",
+    trace: "on-first-retry",
+  },
+  projects: [
+    {
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
+    },
+  ],
+  webServer: {
+    command: "npm run preview -- --host 127.0.0.1",
+    url: "http://127.0.0.1:4173",
+    reuseExistingServer: !process.env.CI,
+  },
 });
