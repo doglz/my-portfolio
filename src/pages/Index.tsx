@@ -440,7 +440,7 @@ const Index = () => {
       </motion.nav>
 
       {/* Hero */}
-      <section ref={heroRef} className="min-h-screen flex items-start justify-center pt-20 md:items-center md:pt-0 relative px-6 overflow-hidden">
+      <section ref={heroRef} className="min-h-screen flex items-center justify-center relative px-6 overflow-hidden">
         {/* Particles */}
         <motion.div className="absolute inset-0 pointer-events-none" style={{ y: particlesY }}>
           {particles.map((p) => (
@@ -485,7 +485,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-            className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] mb-6"
+            className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] mb-4"
           >
             {t.heroTitle1}
             <span className="block text-primary">{t.heroTitle2}</span>
@@ -494,7 +494,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-10 leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-6 leading-relaxed"
           >
             {t.heroDescription}
           </motion.p>
@@ -502,16 +502,10 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
-            className="flex items-center justify-center gap-4"
+            className="flex items-center justify-center"
           >
             <Button asChild size="lg" className="rounded-full font-semibold px-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_12px_hsl(var(--primary)/0.2)]">
               <a href="#planos">{t.viewProjects}</a>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full font-semibold gap-2 px-8 transition-all duration-300 hover:scale-[1.02] hover:border-primary/60">
-              <a href={waLink("Olá, Douglas! Vim pelo site e queria saber mais sobre as landing pages.")} target="_blank" rel="noopener noreferrer">
-                <WhatsAppIcon className="w-4 h-4" />
-                {t.talkToMe}
-              </a>
             </Button>
           </motion.div>
         </motion.div>
@@ -520,7 +514,7 @@ const Index = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground animate-bounce z-10"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground animate-bounce z-10"
         >
           <ChevronDown className="w-6 h-6" />
         </motion.a>
