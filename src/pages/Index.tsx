@@ -471,7 +471,7 @@ const Index = () => {
         {/* Glow effect */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
-        <motion.div className="max-w-5xl text-center relative z-10" style={{ opacity: heroOpacity }}>
+        <motion.div className="w-full max-w-7xl text-center relative z-10" style={{ opacity: heroOpacity }}>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -494,7 +494,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="text-lg md:text-xl xl:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-10 leading-relaxed"
           >
             {t.heroDescription}
           </motion.p>
