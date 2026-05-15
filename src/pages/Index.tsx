@@ -385,8 +385,8 @@ const Index = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl"
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-lg font-bold tracking-tight cursor-pointer">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
+          <a href="#" aria-label="Voltar para o topo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-lg font-bold tracking-tight cursor-pointer">
             <span className="text-primary">&lt;</span>Douglas<span className="text-primary">/&gt;</span>
           </a>
           <div className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
@@ -401,7 +401,13 @@ const Index = () => {
             ))}
           </div>
           <div className="flex items-center gap-3 md:hidden">
-            <button className="text-muted-foreground" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Abrir menu">
+            <button
+              className="text-muted-foreground"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
+            >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
@@ -413,6 +419,7 @@ const Index = () => {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3 }}
+              id="mobile-menu"
               className="md:hidden overflow-hidden border-t border-border/50 bg-background/95 backdrop-blur-xl"
             >
               <div className="flex flex-col gap-4 px-6 py-4 text-sm text-muted-foreground">
@@ -464,7 +471,7 @@ const Index = () => {
         {/* Glow effect */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
-        <motion.div className="max-w-3xl text-center relative z-10" style={{ opacity: heroOpacity }}>
+        <motion.div className="max-w-5xl text-center relative z-10" style={{ opacity: heroOpacity }}>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -478,7 +485,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-            className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
+            className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] mb-6"
           >
             {t.heroTitle1}
             <span className="block text-primary">{t.heroTitle2}</span>
@@ -487,7 +494,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed"
+            className="text-lg md:text-xl xl:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           >
             {t.heroDescription}
           </motion.p>
@@ -523,7 +530,7 @@ const Index = () => {
 
       {/* Sobre */}
       <section id="sobre" className="py-32 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -577,7 +584,7 @@ const Index = () => {
 
       {/* Projetos */}
       <section id="projetos" className="py-20 sm:py-32 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-12 sm:mb-16"
             initial="hidden"
@@ -632,6 +639,7 @@ const Index = () => {
               <button
                 onClick={() => emblaApi?.scrollPrev()}
                 disabled={!canScrollPrev}
+                aria-label="Projeto anterior"
                 className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -639,6 +647,7 @@ const Index = () => {
               <button
                 onClick={() => emblaApi?.scrollNext()}
                 disabled={!canScrollNext}
+                aria-label="Próximo projeto"
                 className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -650,7 +659,7 @@ const Index = () => {
 
       {/* Processo */}
       <section id="processo" className="py-20 sm:py-32 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-12 sm:mb-16"
             initial="hidden"
@@ -815,7 +824,7 @@ const Index = () => {
 
       {/* Planos */}
       <section id="planos" className="py-20 sm:py-32 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-12 sm:mb-16"
             initial="hidden"
@@ -958,7 +967,7 @@ const Index = () => {
 
       {/* Detalhes dos recursos */}
       <section id="detalhes" className="py-20 sm:py-32 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             className="text-center mb-12 sm:mb-16"
             initial="hidden"
@@ -1028,7 +1037,7 @@ const Index = () => {
       {/* Contato */}
       <section id="contato" className="py-20 sm:py-32 px-4 sm:px-6">
         <motion.div
-          className="max-w-2xl mx-auto text-center"
+          className="max-w-3xl mx-auto text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -1051,6 +1060,8 @@ const Index = () => {
                   <label className="space-y-2">
                     <span className="text-sm font-medium text-foreground">Seu nome</span>
                     <input
+                      name="name"
+                      autoComplete="name"
                       value={contactForm.name}
                       onChange={(event) => setContactForm((form) => ({ ...form, name: event.target.value }))}
                       className="w-full rounded-md border border-border/60 bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60"
@@ -1061,6 +1072,8 @@ const Index = () => {
                   <label className="space-y-2">
                     <span className="text-sm font-medium text-foreground">Tipo de negócio</span>
                     <input
+                      name="business"
+                      autoComplete="organization"
                       value={contactForm.businessType}
                       onChange={(event) => setContactForm((form) => ({ ...form, businessType: event.target.value }))}
                       className="w-full rounded-md border border-border/60 bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60"
@@ -1072,6 +1085,7 @@ const Index = () => {
                 <label className="space-y-2 block">
                   <span className="text-sm font-medium text-foreground">Plano de interesse</span>
                   <input
+                    name="plan"
                     value={contactForm.plan}
                     onChange={(event) => setContactForm((form) => ({ ...form, plan: event.target.value }))}
                     className="w-full rounded-md border border-border/60 bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60"
@@ -1082,6 +1096,7 @@ const Index = () => {
                 <label className="space-y-2 block">
                   <span className="text-sm font-medium text-foreground">O que você precisa?</span>
                   <textarea
+                    name="message"
                     value={contactForm.message}
                     onChange={(event) => setContactForm((form) => ({ ...form, message: event.target.value }))}
                     className="min-h-28 w-full resize-none rounded-md border border-border/60 bg-background px-4 py-3 text-sm leading-relaxed outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60"
@@ -1109,7 +1124,7 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="border-t border-border/50 py-8 px-6">
-        <div className="max-w-6xl mx-auto text-center text-sm text-muted-foreground">
+        <div className="max-w-7xl mx-auto text-center text-sm text-muted-foreground">
           <span>{t.footer}</span>
         </div>
       </footer>

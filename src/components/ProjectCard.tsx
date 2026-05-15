@@ -12,7 +12,7 @@ interface ProjectCardProps {
   isActive?: boolean;
 }
 
-const ProjectCard = ({ title, description, tags, image, github, live }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, tags, image, github, live, isActive = false }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -43,7 +43,15 @@ const ProjectCard = ({ title, description, tags, image, github, live }: ProjectC
       >
         <div className="h-48 bg-secondary/50 flex items-center justify-center border-b border-border/50 overflow-hidden">
           {image ? (
-            <img src={image} alt={title} className="block w-full h-full flex-none object-cover object-top pointer-events-none select-none" />
+            <img
+              src={image}
+              alt={`Prévia do projeto ${title}`}
+              width={800}
+              height={450}
+              loading={isActive ? "eager" : "lazy"}
+              decoding="async"
+              className="block w-full h-full flex-none object-cover object-top pointer-events-none select-none"
+            />
           ) : (
             <Layout className="w-12 h-12 text-muted-foreground/30" />
           )}
@@ -60,11 +68,23 @@ const ProjectCard = ({ title, description, tags, image, github, live }: ProjectC
           </div>
           <div className="flex items-center gap-3 pt-2">
             {github && (
-              <a href={github} className="text-muted-foreground hover:text-primary hover:scale-125 transition-all duration-300">
+              <a
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Abrir repositório do projeto ${title}`}
+                className="text-muted-foreground hover:text-primary hover:scale-125 transition-all duration-300"
+              >
                 <Github className="w-4 h-4" />
               </a>
             )}
-            <a href={live} className="text-muted-foreground hover:text-primary hover:scale-125 transition-all duration-300">
+            <a
+              href={live}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Abrir site do projeto ${title}`}
+              className="text-muted-foreground hover:text-primary hover:scale-125 transition-all duration-300"
+            >
               <ExternalLink className="w-4 h-4" />
             </a>
           </div>
