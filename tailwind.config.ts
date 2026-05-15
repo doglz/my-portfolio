@@ -63,6 +63,15 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      keyframes: {
+        marquee: {
+          from: { transform: "translate3d(0, 0, 0)" },
+          to: { transform: "translate3d(-50%, 0, 0)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 35s linear infinite",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

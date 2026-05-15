@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"c:\\\\Users\\\\dougl\\\\Documents\\\\Projetos\\\\meu-portfolio\\\\src\\\\assets\\\\project-nowas.png\")",
+      "Bash(findstr /v \"Volume Directory File\\(s\\) Dir\\(s\\)\")",
+      "WebFetch(domain:nowas-lp.vercel.app)",
+      "Bash(del \"c:\\\\Users\\\\dougl\\\\Documents\\\\Projetos\\\\meu-portfolio\\\\src\\\\pages\\\\Pricing.tsx\")",
+      "Bash(npx vite *)"
+    ]
+  }
+}

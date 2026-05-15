@@ -12,9 +12,8 @@ interface ProjectCardProps {
   isActive?: boolean;
 }
 
-const ProjectCard = ({ title, description, tags, image, github, live, isActive = false }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, tags, image, github, live }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const isHighlighted = isActive || isHovered;
 
   return (
     <div
@@ -28,15 +27,15 @@ const ProjectCard = ({ title, description, tags, image, github, live, isActive =
       <div
         className="rounded-lg overflow-hidden h-full flex flex-col border transition-all duration-500"
         style={{
-          background: isHighlighted
+          background: isHovered
             ? "linear-gradient(135deg, hsl(var(--card)), hsl(var(--card) / 0.85))"
             : "hsl(var(--card))",
-          backdropFilter: isHighlighted ? "blur(16px)" : "blur(8px)",
-          WebkitBackdropFilter: isHighlighted ? "blur(16px)" : "blur(8px)",
-          borderColor: isHighlighted
+          backdropFilter: isHovered ? "blur(16px)" : "blur(8px)",
+          WebkitBackdropFilter: isHovered ? "blur(16px)" : "blur(8px)",
+          borderColor: isHovered
             ? "hsl(var(--primary) / 0.4)"
             : "hsl(var(--border) / 0.5)",
-          boxShadow: isHighlighted
+          boxShadow: isHovered
             ? "0 8px 32px hsl(var(--primary) / 0.12), inset 0 1px 0 hsl(var(--primary) / 0.1)"
             : "0 2px 8px hsl(var(--background) / 0.3), inset 0 1px 0 hsl(var(--foreground) / 0.03)",
           minHeight: "380px",
