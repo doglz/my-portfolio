@@ -514,7 +514,7 @@ const Index = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground animate-bounce z-10"
+          className="absolute bottom-16 sm:bottom-14 left-1/2 -translate-x-1/2 text-muted-foreground animate-bounce z-10"
         >
           <ChevronDown className="w-6 h-6" />
         </motion.a>
