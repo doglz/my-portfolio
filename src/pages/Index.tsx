@@ -209,14 +209,14 @@ const Index = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
-  const [pricingEmblaRef, pricingEmblaApi] = useEmblaCarousel({ loop: true, align: "center" });
+  const [pricingEmblaRef, pricingEmblaApi] = useEmblaCarousel({ loop: true, align: "center", startIndex: 1 });
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(true);
   const [canScrollPricingPrev, setCanScrollPricingPrev] = useState(false);
   const [canScrollPricingNext, setCanScrollPricingNext] = useState(true);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [selectedProcessIndex, setSelectedProcessIndex] = useState(0);
-  const [selectedPricingIndex, setSelectedPricingIndex] = useState(0);
+  const [selectedPricingIndex, setSelectedPricingIndex] = useState(1);
   const [openFeatureGroup, setOpenFeatureGroup] = useState<string | null>("Portfólio");
   const [contactForm, setContactForm] = useState({
     name: "",
@@ -276,9 +276,7 @@ const Index = () => {
     },
   ];
   const portfolioPlan = plans.find((plan) => plan.name === "Portfólio");
-  const mainPlans = plans
-    .filter((plan) => plan.name !== "Portfólio")
-    .sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
+  const mainPlans = plans.filter((plan) => plan.name !== "Portfólio");
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -1060,57 +1058,57 @@ const Index = () => {
           </motion.p>
 
           <motion.div variants={fadeUp} className="mb-8 text-left">
-            <Card className="border-border/50 bg-card p-5 sm:p-6">
-              <form onSubmit={handleContactSubmit} className="space-y-4">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="space-y-2">
-                    <span className="text-sm font-medium text-foreground">Seu nome</span>
+            <Card className="overflow-hidden border-border/50 bg-card">
+              <form onSubmit={handleContactSubmit} className="grid gap-5 p-5 sm:p-6">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <label className="block space-y-2">
+                    <span className="block text-sm font-medium text-foreground">Seu nome</span>
                     <input
                       name="name"
                       autoComplete="name"
                       value={contactForm.name}
                       onChange={(event) => setContactForm((form) => ({ ...form, name: event.target.value }))}
-                      className="w-full rounded-md border border-border/60 bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60"
+                      className="h-12 w-full rounded-lg border border-border/60 bg-background/80 px-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60 focus:bg-background"
                       placeholder="Como posso te chamar?"
                     />
                   </label>
 
-                  <label className="space-y-2">
-                    <span className="text-sm font-medium text-foreground">Tipo de negócio</span>
+                  <label className="block space-y-2">
+                    <span className="block text-sm font-medium text-foreground">Tipo de negócio</span>
                     <input
                       name="business"
                       autoComplete="organization"
                       value={contactForm.businessType}
                       onChange={(event) => setContactForm((form) => ({ ...form, businessType: event.target.value }))}
-                      className="w-full rounded-md border border-border/60 bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60"
+                      className="h-12 w-full rounded-lg border border-border/60 bg-background/80 px-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60 focus:bg-background"
                       placeholder="Ex: Nail Designer, restaurante, loja..."
                     />
                   </label>
                 </div>
 
-                <label className="space-y-2 block">
-                  <span className="text-sm font-medium text-foreground">Plano de interesse</span>
+                <label className="block space-y-2">
+                  <span className="block text-sm font-medium text-foreground">Plano de interesse</span>
                   <input
                     name="plan"
                     value={contactForm.plan}
                     onChange={(event) => setContactForm((form) => ({ ...form, plan: event.target.value }))}
-                    className="w-full rounded-md border border-border/60 bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60"
+                    className="h-12 w-full rounded-lg border border-border/60 bg-background/80 px-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60 focus:bg-background"
                     placeholder="Ex: Portfólio, Profissional ou ainda não sei"
                   />
                 </label>
 
-                <label className="space-y-2 block">
-                  <span className="text-sm font-medium text-foreground">O que você precisa?</span>
+                <label className="block space-y-2">
+                  <span className="block text-sm font-medium text-foreground">O que você precisa?</span>
                   <textarea
                     name="message"
                     value={contactForm.message}
                     onChange={(event) => setContactForm((form) => ({ ...form, message: event.target.value }))}
-                    className="min-h-28 w-full resize-none rounded-md border border-border/60 bg-background px-4 py-3 text-sm leading-relaxed outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60"
+                    className="min-h-32 w-full resize-none rounded-lg border border-border/60 bg-background/80 px-4 py-3 text-sm leading-relaxed text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60 focus:bg-background"
                     placeholder="Ex: quero uma página para mostrar meus serviços e receber agendamentos pelo WhatsApp."
                   />
                 </label>
 
-                <Button type="submit" size="lg" className="w-full rounded-full font-semibold gap-2 bg-[#25D366] text-white hover:bg-[#1ebe57] transition-all duration-300 hover:scale-[1.01]">
+                <Button type="submit" size="lg" className="mt-1 w-full rounded-full font-semibold gap-2 bg-[#25D366] text-white hover:bg-[#1ebe57] transition-all duration-300 hover:scale-[1.01]">
                   <WhatsAppIcon className="w-4 h-4" />
                   Enviar pelo WhatsApp
                 </Button>
