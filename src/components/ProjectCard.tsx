@@ -38,10 +38,10 @@ const ProjectCard = ({ title, description, tags, image, github, live, isActive =
           boxShadow: isHovered
             ? "0 8px 32px hsl(var(--primary) / 0.12), inset 0 1px 0 hsl(var(--primary) / 0.1)"
             : "0 2px 8px hsl(var(--background) / 0.3), inset 0 1px 0 hsl(var(--foreground) / 0.03)",
-          minHeight: "380px",
+          minHeight: "460px",
         }}
       >
-        <div className="h-48 bg-secondary/50 flex items-center justify-center border-b border-border/50 overflow-hidden">
+        <div className="h-60 bg-secondary/50 flex items-center justify-center border-b border-border/50 overflow-hidden">
           {image ? (
             <img
               src={image}
@@ -56,7 +56,7 @@ const ProjectCard = ({ title, description, tags, image, github, live, isActive =
             <Layout className="w-12 h-12 text-muted-foreground/30" />
           )}
         </div>
-        <CardContent className="p-6 space-y-4">
+        <CardContent className="p-6 space-y-4 flex flex-1 flex-col">
           <h3 className="text-lg font-semibold">{title}</h3>
           <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
           <div className="flex flex-wrap gap-2">
@@ -66,7 +66,7 @@ const ProjectCard = ({ title, description, tags, image, github, live, isActive =
               </span>
             ))}
           </div>
-          <div className="flex items-center gap-3 pt-2">
+          <div className="flex items-center gap-3 pt-2 mt-auto">
             {github && (
               <a
                 href={github}

@@ -10,6 +10,7 @@ import projectRobuxStation from "@/assets/project-robux-station.png";
 import projectNowas from "@/assets/project-nowas.png";
 import projectBella from "@/assets/project-bella.png";
 import projectVision from "@/assets/project-vision.png";
+import projectBazeAcademy from "@/assets/project-baze-academy.png";
 import ProjectCard from "@/components/ProjectCard";
 import Marquee from "@/components/Marquee";
 import WhatsAppFloat, { WhatsAppIcon } from "@/components/WhatsAppFloat";
@@ -240,6 +241,14 @@ const Index = () => {
       image: projectNowas,
       github: null,
       live: "https://nowas-lp.vercel.app/",
+    },
+    {
+      title: "Baze Academy",
+      description: t.projectBazeAcademyDesc,
+      tags: ["Jiu-jitsu", "Barra de São João"],
+      image: projectBazeAcademy,
+      github: null,
+      live: "https://bazeacademy.com.br/barrasj/",
     },
     {
       title: "Bella Glam Design",
@@ -550,6 +559,9 @@ const Index = () => {
               <p>
                 {t.aboutP3[0]}<span className="text-foreground font-medium">{t.aboutP3[1]}</span>{t.aboutP3[2]}
               </p>
+              <p>
+                {t.aboutP4[0]}<span className="text-foreground font-medium">{t.aboutP4[1]}</span>{t.aboutP4[2]}
+              </p>
             </motion.div>
           </motion.div>
           <motion.div
@@ -562,7 +574,7 @@ const Index = () => {
             {[
               { val: "7d", label: t.statYear },
               { val: "SEO", label: t.statSEO },
-              { val: "1×", label: t.statCopy },
+              { val: "50/50", label: t.statCopy },
               { val: "Direto", label: t.statBranding },
             ].map((item, i) => (
               <motion.div key={i} variants={fadeUp} custom={i}>
