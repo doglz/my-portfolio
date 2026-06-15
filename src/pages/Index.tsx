@@ -84,7 +84,7 @@ const plans: Plan[] = [
   },
   {
     name: "Essencial",
-    price: "R$ 497",
+    price: "R$ 399",
     description: "Para negócios que precisam estar online com profissionalismo. Página objetiva, mais completa e preparada para transformar visitantes em contatos.",
     features: [
       "Página landing page",
@@ -102,7 +102,7 @@ const plans: Plan[] = [
   },
   {
     name: "Profissional",
-    price: "R$ 997",
+    price: "R$ 899",
     highlight: "mais escolhido",
     featured: true,
     description: "Para o pequeno negócio local que quer aparecer no Google. Domínio próprio, SEO local, copy estratégica e Google Maps integrados.",
@@ -121,7 +121,7 @@ const plans: Plan[] = [
   },
   {
     name: "Premium",
-    price: "R$ 1.997",
+    price: "R$ 1.799",
     description: "Para o dono de negócio ambicioso que quer captar leads, rastrear resultados e ter suporte dedicado. Posicionamento de especialista, sem peso de agência.",
     features: [
       "Tudo do Profissional",
