@@ -71,7 +71,7 @@ const plans: Plan[] = [
   {
     name: "Portfólio",
     price: "R$ 119,90",
-    description: "Para profissionais da beleza: manicures, nail designers, designers de unhas, designers de sobrancelhas, lash designers, extensionistas de cílios, maquiadoras, esteticistas e profissionais de estética que precisam de uma vitrine simples para mostrar serviços e receber contatos.",
+    description: "Focado no nicho de estética (manicures, lash designers), oferecendo uma vitrine rápida com galeria de serviços e botão pro WhatsApp.",
     features: [
       "Portfólio de serviços",
       "Galeria com trabalhos",
@@ -87,7 +87,7 @@ const plans: Plan[] = [
     price: "R$ 699,90",
     highlight: "mais escolhido",
     featured: true,
-    description: "Para o pequeno negócio local que quer aparecer no Google. Domínio próprio, SEO local, copy estratégica e Google Maps integrados.",
+    description: "Focado em negócios locais que querem aparecer no Google, oferecendo domínio próprio, SEO básico e Google Maps.",
     features: [
       "Tudo do Portfólio",
       "Domínio próprio",
@@ -104,7 +104,7 @@ const plans: Plan[] = [
   {
     name: "Premium",
     price: "R$ 1.499,90",
-    description: "Para o dono de negócio ambicioso que quer captar leads, rastrear resultados e ter suporte dedicado. Posicionamento de especialista, sem peso de agência.",
+    description: "Focado em captação pesada de leads, oferecendo formulários, rastreamento de cliques e posicionamento especialista no Google Search Console.",
     features: [
       "Tudo do Profissional",
       "Google Search Console",
@@ -159,15 +159,7 @@ const featureGroups = [
   },
 ];
 
-// Generate deterministic particle positions
-const particles = Array.from({ length: 40 }, (_, i) => ({
-  id: i,
-  x: ((i * 37 + 13) % 100),
-  y: ((i * 53 + 7) % 100),
-  size: (i % 3) + 1,
-  duration: 3 + (i % 5) * 1.5,
-  delay: (i % 7) * 0.4,
-}));
+
 
 const Index = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -285,7 +277,7 @@ const Index = () => {
     event.preventDefault();
 
     const text = [
-      "Olá, Douglas! Vim pelo site e quero conversar sobre uma landing page.",
+      "Olá, equipe da Vitrina! Vim pelo site e quero conversar sobre uma landing page.",
       "",
       `Nome: ${contactForm.name || "Não informado"}`,
       `Tipo de negócio: ${contactForm.businessType}`,
@@ -300,8 +292,8 @@ const Index = () => {
     <Card
       className={`relative h-full p-6 lg:p-8 flex flex-col transition-all duration-300 ${
         plan.featured
-          ? "bg-card border-primary/40"
-          : "bg-card border-border/50 hover:border-primary/30"
+          ? "bg-card border-primary/40 shadow-[0_0_40px_hsl(var(--primary)/0.15)]"
+          : "bg-card border-border/50 hover:border-primary/30 hover:shadow-[0_0_20px_hsl(var(--primary)/0.05)]"
       }`}
     >
       {plan.highlight && (
@@ -357,7 +349,7 @@ const Index = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
           <a href="#" aria-label="Voltar para o topo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-lg font-bold tracking-tight cursor-pointer">
-            <span className="text-primary">&lt;</span>Douglas<span className="text-primary">/&gt;</span>
+            <span className="text-primary">&lt;</span>Vitrina<span className="text-primary">/&gt;</span>
           </a>
           <div className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
             {navLinks.map((link) => (
@@ -411,35 +403,7 @@ const Index = () => {
 
       {/* Hero */}
       <section ref={heroRef} className="min-h-screen flex items-center justify-center relative px-6 overflow-hidden">
-        {/* Particles */}
-        <motion.div className="absolute inset-0 pointer-events-none" style={{ y: particlesY }}>
-          {particles.map((p) => (
-            <motion.div
-              key={p.id}
-              className="absolute rounded-full bg-primary"
-              style={{
-                left: `${p.x}%`,
-                top: `${p.y}%`,
-                width: p.size,
-                height: p.size,
-              }}
-              animate={{
-                opacity: [0, 0.4, 0],
-                y: [0, -30, 0],
-                scale: [0.5, 1, 0.5],
-              }}
-              transition={{
-                duration: p.duration,
-                delay: p.delay,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
-        </motion.div>
 
-        {/* Glow effect */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
         <motion.div className="w-full max-w-7xl text-center relative z-10" style={{ opacity: heroOpacity }}>
           <motion.div
@@ -455,10 +419,10 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-            className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] mb-4"
+            className="text-5xl md:text-7xl xl:text-[5.5rem] font-bold tracking-tight leading-[1.05] mb-4"
           >
             {t.heroTitle1}
-            <span className="block text-primary">{t.heroTitle2}</span>
+            <span className="block text-foreground mt-2">{t.heroTitle2}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -472,10 +436,13 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
-            className="flex items-center justify-center"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2"
           >
-            <Button asChild size="lg" className="rounded-full font-semibold px-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_12px_hsl(var(--primary)/0.2)]">
+            <Button asChild size="lg" className="rounded-full font-semibold px-8 transition-transform hover:scale-[1.02]">
               <a href="#planos">{t.viewProjects}</a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="rounded-full font-semibold px-8 transition-transform hover:scale-[1.02]">
+              <a href={waLink()} target="_blank" rel="noopener noreferrer">{t.talkToMe}</a>
             </Button>
           </motion.div>
         </motion.div>
@@ -490,6 +457,9 @@ const Index = () => {
         </motion.a>
       </section>
 
+      <div className="pt-24 pb-8 text-center text-sm font-semibold text-muted-foreground uppercase tracking-widest">
+        Empresas que confiam na Vitrina
+      </div>
       <Marquee />
 
       {/* Sobre */}
@@ -577,15 +547,7 @@ const Index = () => {
               <div className="flex items-stretch -ml-4 sm:-ml-6">
                 {projects.map((project, i) => (
                   <div key={i} className="flex-[0_0_100%] sm:flex-[0_0_58%] lg:flex-[0_0_38%] min-w-0 h-auto pl-4 sm:pl-6">
-                    <motion.div
-                      className="mx-auto h-full w-[86%] max-w-[340px] origin-center sm:w-full sm:max-w-none"
-                      animate={{
-                        opacity: selectedProjectIndex === i ? 1 : 0.58,
-                        scale: selectedProjectIndex === i ? 1 : 0.88,
-                        y: selectedProjectIndex === i ? 0 : 18,
-                      }}
-                      transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    >
+                    <div className="mx-auto h-full w-[90%] max-w-[340px] sm:w-full sm:max-w-none transition-opacity duration-300" style={{ opacity: selectedProjectIndex === i ? 1 : 0.7 }}>
                       <ProjectCard
                         title={project.title}
                         description={project.description}
@@ -595,7 +557,7 @@ const Index = () => {
                         live={project.live}
                         isActive={selectedProjectIndex === i}
                       />
-                    </motion.div>
+                    </div>
                   </div>
                 ))}
               </div>
