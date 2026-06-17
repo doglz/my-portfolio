@@ -70,7 +70,7 @@ type Plan = {
 const plans: Plan[] = [
   {
     name: "Portfólio",
-    price: "R$ 99,00",
+    price: "R$ 119,90",
     description: "Para profissionais da beleza: manicures, nail designers, designers de unhas, designers de sobrancelhas, lash designers, extensionistas de cílios, maquiadoras, esteticistas e profissionais de estética que precisam de uma vitrine simples para mostrar serviços e receber contatos.",
     features: [
       "Portfólio de serviços",
@@ -83,31 +83,13 @@ const plans: Plan[] = [
     ],
   },
   {
-    name: "Essencial",
-    price: "R$ 399",
-    description: "Para negócios que precisam estar online com profissionalismo. Página objetiva, mais completa e preparada para transformar visitantes em contatos.",
-    features: [
-      "Página landing page",
-      "Botão para WhatsApp",
-      "Serviços e modalidades",
-      "Seção sobre a empresa",
-      "Galeria de imagens",
-      "Localização da empresa",
-      "Links para redes sociais",
-      "Perguntas frequentes",
-      "Chamada para agendamento",
-      "Design responsivo",
-      "Suporte por 7 dias",
-    ],
-  },
-  {
     name: "Profissional",
-    price: "R$ 899",
+    price: "R$ 699,90",
     highlight: "mais escolhido",
     featured: true,
     description: "Para o pequeno negócio local que quer aparecer no Google. Domínio próprio, SEO local, copy estratégica e Google Maps integrados.",
     features: [
-      "Tudo do Essencial",
+      "Tudo do Portfólio",
       "Domínio próprio",
       "SEO básico",
       "Copy personalizada",
@@ -121,11 +103,10 @@ const plans: Plan[] = [
   },
   {
     name: "Premium",
-    price: "R$ 1.799",
+    price: "R$ 1.499,90",
     description: "Para o dono de negócio ambicioso que quer captar leads, rastrear resultados e ter suporte dedicado. Posicionamento de especialista, sem peso de agência.",
     features: [
       "Tudo do Profissional",
-      "Google Analytics",
       "Google Search Console",
       "Formulário de captação",
       "Hospedagem inclusa",
@@ -151,22 +132,6 @@ const featureGroups = [
     ],
   },
   {
-    title: "Essencial",
-    items: [
-      { name: "Landing page", description: "Página única e objetiva para apresentar a empresa e converter visitantes em contatos." },
-      { name: "Botão para WhatsApp", description: "Contato imediato com um clique, reduzindo o atrito para o cliente entrar em contato." },
-      { name: "Serviços", description: "Organiza o que a empresa oferece de forma clara e de fácil leitura." },
-      { name: "Seção sobre a empresa", description: "Apresenta quem está por trás do negócio e ajuda a criar confiança com novos clientes." },
-      { name: "Galeria de imagens", description: "Exibe fotos do espaço, produtos, serviços ou resultados para deixar a página mais convincente." },
-      { name: "Localização", description: "Exibe o endereço para que clientes saibam onde a empresa está." },
-      { name: "Links para redes sociais", description: "Direciona visitantes para Instagram, Facebook ou outros canais importantes do negócio." },
-      { name: "Perguntas frequentes", description: "Responde dúvidas comuns antes do contato e reduz objeções do visitante." },
-      { name: "Chamada para agendamento", description: "Botões e frases posicionados para incentivar o cliente a pedir orçamento ou marcar horário." },
-      { name: "Design responsivo", description: "Layout adaptado para celulares, tablets e computadores." },
-      { name: "Suporte 7 dias", description: "Ajustes de texto, imagens e informações durante 7 dias após a entrega." },
-    ],
-  },
-  {
     title: "Profissional",
     items: [
       { name: "Domínio próprio", description: "Endereço como empresa.com.br, transmitindo profissionalismo e credibilidade." },
@@ -183,7 +148,6 @@ const featureGroups = [
   {
     title: "Premium",
     items: [
-      { name: "Google Analytics", description: "Dados de visitantes: volume, origem, tempo na página e comportamento." },
       { name: "Search Console", description: "Monitora se o site está aparecendo no Google e quais buscas geram cliques." },
       { name: "Formulário de captação", description: "Coleta nome e contato de visitantes interessados para abordagem posterior." },
       { name: "Hospedagem inclusa", description: "Site publicado e hospedado sem custo extra durante o período combinado." },
@@ -275,8 +239,7 @@ const Index = () => {
       live: "https://robuxstationdc.com/",
     },
   ];
-  const portfolioPlan = plans.find((plan) => plan.name === "Portfólio");
-  const mainPlans = plans.filter((plan) => plan.name !== "Portfólio");
+  const mainPlans = plans;
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -908,54 +871,7 @@ const Index = () => {
             ))}
           </motion.div>
 
-          {portfolioPlan && (
-            <motion.div
-              className="mt-8"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeUp}
-            >
-              <Card className="relative overflow-hidden border-primary/25 bg-primary/5 p-6 sm:p-8 transition-all duration-300 hover:border-primary/40">
-                <div className="grid gap-6 lg:grid-cols-[1.15fr_1.55fr_auto] lg:items-center">
-                  <div>
-                    <Badge variant="outline" className="mb-4 border-primary/30 text-primary font-mono text-[10px] uppercase tracking-wide">
-                      opção econômica
-                    </Badge>
-                    <h3 className="text-2xl font-bold mb-2">{portfolioPlan.name}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{portfolioPlan.description}</p>
-                  </div>
 
-                  <ul className="grid gap-3 sm:grid-cols-2">
-                    {portfolioPlan.features.slice(0, 6).map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm">
-                        <Check className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
-                        <span className="text-foreground/90">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-col gap-4 lg:min-w-[180px]">
-                    <div>
-                      <span className="text-4xl font-bold tracking-tight">{portfolioPlan.price}</span>
-                      <span className="text-xs text-muted-foreground mt-1 block">50% antes e 50% após a conclusão</span>
-                    </div>
-                    <Button
-                      asChild
-                      size="lg"
-                      variant="outline"
-                      className="rounded-full font-semibold w-full transition-all duration-300 hover:scale-[1.02] hover:border-primary/60"
-                    >
-                      <a href={waLinkForPlan(portfolioPlan.name)} target="_blank" rel="noopener noreferrer">
-                        Quero esse plano
-                        <ArrowRight className="w-4 h-4" />
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          )}
 
           <motion.p
             className="text-center text-sm text-muted-foreground mt-12"
