@@ -161,6 +161,25 @@ const featureGroups = [
 
 
 
+const renderGoogleText = (text: string) => {
+  const parts = text.split("Google");
+  if (parts.length === 1) return text;
+  return (
+    <>
+      {parts[0]}
+      <span className="inline-block font-bold">
+        <span style={{ color: "#4285F4" }}>G</span>
+        <span style={{ color: "#EA4335" }}>o</span>
+        <span style={{ color: "#FBBC05" }}>o</span>
+        <span style={{ color: "#4285F4" }}>g</span>
+        <span style={{ color: "#34A853" }}>l</span>
+        <span style={{ color: "#EA4335" }}>e</span>
+      </span>
+      {parts[1]}
+    </>
+  );
+};
+
 const Index = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -421,7 +440,7 @@ const Index = () => {
             transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
             className="text-5xl md:text-7xl xl:text-[5.5rem] font-bold tracking-tight leading-[1.05] mb-4"
           >
-            {t.heroTitle1}
+            {renderGoogleText(t.heroTitle1)}
             <span className="block text-foreground mt-2">{t.heroTitle2}</span>
           </motion.h1>
           <motion.p
