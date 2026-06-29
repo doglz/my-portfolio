@@ -7,5 +7,5 @@ export const waLink = (text?: string) =>
 
 export const waLinkForPlan = (plan: string) =>
   waLink(
-    `Olá, equipe da Vitrina! Tenho interesse no plano ${plan}. Pode me passar os próximos passos?`,
+    `Olá, Douglas! Tenho interesse no plano ${plan}. Pode me passar os próximos passos?`,
   );

@@ -296,7 +296,7 @@ const Index = () => {
     event.preventDefault();
 
     const text = [
-      "Olá, equipe da Vitrina! Vim pelo site e quero conversar sobre uma landing page.",
+      "Olá, Douglas! Vim pelo site e quero conversar sobre uma landing page.",
       "",
       `Nome: ${contactForm.name || "Não informado"}`,
       `Tipo de negócio: ${contactForm.businessType}`,
@@ -358,7 +358,12 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
+      {/* Background Soft Glows */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] sm:w-[1000px] sm:h-[1000px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.04)_0%,transparent_70%)]" />
+        <div className="absolute top-[60%] left-[-10%] w-[500px] h-[500px] sm:w-[800px] sm:h-[800px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_70%)]" />
+      </div>
       {/* Nav */}
       <motion.nav
         initial={{ y: -80 }}
@@ -368,7 +373,7 @@ const Index = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
           <a href="#" aria-label="Voltar para o topo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-lg font-bold tracking-tight cursor-pointer">
-            <span className="text-primary">&lt;</span>Vitrina<span className="text-primary">/&gt;</span>
+            <span className="text-primary">&lt;</span>Douglas<span className="text-primary">/&gt;</span>
           </a>
           <div className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
             {navLinks.map((link) => (
@@ -477,7 +482,7 @@ const Index = () => {
       </section>
 
       <div className="pt-24 pb-8 text-center text-sm font-semibold text-muted-foreground uppercase tracking-widest">
-        Empresas que confiam na Vitrina
+        Empresas que confiam no meu trabalho
       </div>
       <Marquee />
 
@@ -522,14 +527,14 @@ const Index = () => {
             variants={stagger}
           >
             {[
-              { val: "7d", label: t.statYear },
-              { val: "SEO", label: t.statSEO },
-              { val: "50/50", label: t.statCopy },
+              { val: "7 dias", label: t.statYear },
+              { val: "Conversão", label: t.statSEO },
+              { val: "Até 3x", label: t.statCopy },
               { val: "Direto", label: t.statBranding },
             ].map((item, i) => (
-              <motion.div key={i} variants={fadeUp} custom={i}>
-                <Card className="bg-card border-border/50 p-6 hover:border-primary/30 transition-colors duration-300">
-                  <div className="text-3xl font-bold text-primary mb-1">{item.val}</div>
+              <motion.div key={i} variants={fadeUp} custom={i} className="group relative">
+                <Card className="relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10">
+                  <div className="text-3xl font-bold text-foreground mb-1 drop-shadow-sm">{item.val}</div>
                   <div className="text-sm text-muted-foreground">{item.label}</div>
                 </Card>
               </motion.div>
@@ -657,7 +662,7 @@ const Index = () => {
                 ))}
               </div>
 
-              <Card className="overflow-hidden border-border/50 bg-card">
+              <Card className="relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
                 <div className="h-1 bg-border/50">
                   <div
                     className="h-full bg-primary transition-all duration-300"
@@ -935,100 +940,50 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contato */}
-      <section id="contato" className="py-20 sm:py-32 px-4 sm:px-6">
+      {/* Megafooter Contato */}
+      <section id="contato" className="relative pt-32 pb-12 px-4 sm:px-6 overflow-hidden flex flex-col items-center justify-center min-h-[70vh]">
+        {/* Glow de fundo pro footer */}
+        <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.05)_0%,transparent_70%)] pointer-events-none z-0" />
+        
         <motion.div
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-4xl mx-auto text-center w-full relative z-10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
         >
           <motion.div variants={fadeUp}>
-            <Badge variant="outline" className="mb-4 text-primary border-primary/30 font-mono text-xs">{t.contactTag}</Badge>
+            <h2 className="text-[12vw] sm:text-[8vw] font-bold tracking-tighter leading-none mb-8 text-foreground/90 uppercase">
+              Vamos Conversar?
+            </h2>
           </motion.div>
-          <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            {t.contactTitle1}<span className="text-primary">{t.contactTitle2}</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-muted-foreground mb-8 leading-relaxed">
+          
+          <motion.div variants={fadeUp} className="mb-12 text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
             {t.contactDescription}
-          </motion.p>
-
-          <motion.div variants={fadeUp} className="mb-8 text-left">
-            <Card className="overflow-hidden border-border/50 bg-card">
-              <form onSubmit={handleContactSubmit} className="grid gap-5 p-5 sm:p-6">
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <label className="block space-y-2">
-                    <span className="block text-sm font-medium text-foreground">Seu nome</span>
-                    <input
-                      name="name"
-                      autoComplete="name"
-                      value={contactForm.name}
-                      onChange={(event) => setContactForm((form) => ({ ...form, name: event.target.value }))}
-                      className="h-12 w-full rounded-lg border border-border/60 bg-background/80 px-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60 focus:bg-background"
-                      placeholder="Como posso te chamar?"
-                    />
-                  </label>
-
-                  <label className="block space-y-2">
-                    <span className="block text-sm font-medium text-foreground">Tipo de negócio</span>
-                    <input
-                      name="business"
-                      autoComplete="organization"
-                      value={contactForm.businessType}
-                      onChange={(event) => setContactForm((form) => ({ ...form, businessType: event.target.value }))}
-                      className="h-12 w-full rounded-lg border border-border/60 bg-background/80 px-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60 focus:bg-background"
-                      placeholder="Ex: Nail Designer, restaurante, loja..."
-                    />
-                  </label>
-                </div>
-
-                <label className="block space-y-2">
-                  <span className="block text-sm font-medium text-foreground">Plano de interesse</span>
-                  <input
-                    name="plan"
-                    value={contactForm.plan}
-                    onChange={(event) => setContactForm((form) => ({ ...form, plan: event.target.value }))}
-                    className="h-12 w-full rounded-lg border border-border/60 bg-background/80 px-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60 focus:bg-background"
-                    placeholder="Ex: Portfólio, Profissional ou ainda não sei"
-                  />
-                </label>
-
-                <label className="block space-y-2">
-                  <span className="block text-sm font-medium text-foreground">O que você precisa?</span>
-                  <textarea
-                    name="message"
-                    value={contactForm.message}
-                    onChange={(event) => setContactForm((form) => ({ ...form, message: event.target.value }))}
-                    className="min-h-32 w-full resize-none rounded-lg border border-border/60 bg-background/80 px-4 py-3 text-sm leading-relaxed text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/60 focus:bg-background"
-                    placeholder="Ex: quero uma página para mostrar meus serviços e receber agendamentos pelo WhatsApp."
-                  />
-                </label>
-
-                <Button type="submit" size="lg" className="mt-1 w-full rounded-full font-semibold gap-2 bg-[#25D366] text-white hover:bg-[#1ebe57] transition-all duration-300 hover:scale-[1.01]">
-                  <WhatsAppIcon className="w-4 h-4" />
-                  Enviar pelo WhatsApp
-                </Button>
-              </form>
-            </Card>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="flex flex-col items-center justify-center gap-4">
-            <Button asChild variant="outline" size="lg" className="rounded-full font-semibold gap-2 px-8 transition-all duration-300 hover:scale-[1.02] hover:border-primary/60">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-24">
+            <Button asChild size="lg" className="rounded-full font-bold px-10 py-7 text-lg transition-transform hover:scale-[1.02] shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]">
+              <a href={waLink()} target="_blank" rel="noopener noreferrer">
+                <WhatsAppIcon className="w-5 h-5 mr-2" />
+                Falar no WhatsApp
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="rounded-full font-bold px-10 py-7 text-lg transition-transform hover:scale-[1.02] bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10">
               <a href="https://www.instagram.com/douglz.code/" target="_blank" rel="noopener noreferrer">
-                <Instagram className="w-4 h-4" /> Instagram
+                <Instagram className="w-5 h-5 mr-2" /> 
+                Ver Instagram
               </a>
             </Button>
           </motion.div>
         </motion.div>
-      </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border/50 py-8 px-6">
-        <div className="max-w-7xl mx-auto text-center text-sm text-muted-foreground">
+        {/* Small Footer base */}
+        <div className="relative z-10 border-t border-white/10 pt-8 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground">
           <span>{t.footer}</span>
+          <span className="mt-4 md:mt-0 opacity-70">Design minimalista e de alta conversão.</span>
         </div>
-      </footer>
+      </section>
 
       <WhatsAppFloat />
     </div>
