@@ -1,4 +1,4 @@
-import { Instagram, ChevronDown, ChevronLeft, ChevronRight, Code2, Palette, Menu, X, Sparkles, Check, MessageSquare, Pencil, Rocket, ArrowRight } from "lucide-react";
+import { Globe, Instagram, ChevronDown, ChevronLeft, ChevronRight, Code2, Palette, Menu, X, Sparkles, Check, MessageSquare, Pencil, Rocket, ArrowRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -199,7 +199,7 @@ const Index = () => {
     plan: "",
     message: "",
   });
-  const { t } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
   const navLinks = [
     { href: "#sobre", label: t.navAbout },
     { href: "#projetos", label: t.navProjects },
@@ -385,6 +385,14 @@ const Index = () => {
                 {link.label}
               </a>
             ))}
+            <button
+              onClick={() => setLanguage(language === "en" ? "pt" : "en")}
+              className="flex items-center gap-1.5 hover:text-primary transition-colors text-muted-foreground hover:bg-secondary/50 px-2 py-1 rounded-md"
+              aria-label="Toggle language"
+            >
+              <Globe className="w-4 h-4" />
+              <span className="font-medium text-xs uppercase">{language}</span>
+            </button>
           </div>
           <div className="flex items-center gap-3 md:hidden">
             <button
@@ -419,6 +427,19 @@ const Index = () => {
                     {link.label}
                   </a>
                 ))}
+                <button
+                  onClick={() => {
+                    setLanguage(language === "en" ? "pt" : "en");
+                    setMobileMenuOpen(false);
+                  }}
+                  className="flex items-center gap-2 hover:text-foreground transition-colors mt-2 pt-4 border-t border-border/50 text-left"
+                  aria-label="Toggle language"
+                >
+                  <Globe className="w-4 h-4" />
+                  <span className="font-medium uppercase text-xs">
+                    {language === "en" ? "Mudar para Português" : "Switch to English"}
+                  </span>
+                </button>
               </div>
             </motion.div>
           )}

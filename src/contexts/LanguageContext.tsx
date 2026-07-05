@@ -28,6 +28,7 @@ const translations = {
     contactTitle2: "página no ar?",
     contactDescription: "Me chama no WhatsApp e a gente conversa sobre o plano ideal pro seu negócio. Resposta no mesmo dia.",
     footer: "© 2025 Douglas — Desenvolvimento Web e Design.",
+    visitPage: "Acessar página",
     navAbout: "Sobre",
     navProjects: "Clientes",
     navProcess: "Processo",
@@ -64,6 +65,7 @@ const translations = {
     contactTitle2: "page online?",
     contactDescription: "Text me on WhatsApp and let's talk about the right plan for your business. Same-day reply.",
     footer: "© 2025 Douglas — Web Development & Design.",
+    visitPage: "Visit page",
     navAbout: "About",
     navProjects: "Clients",
     navProcess: "Process",
@@ -90,7 +92,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>("pt");
+  const [language, setLanguage] = useState<Language>("en");
   const t = translations[language];
 
   return (

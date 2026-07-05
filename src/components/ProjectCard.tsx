@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Github, ExternalLink, Layout } from "lucide-react";
 import { CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ProjectCardProps {
   title: string;
@@ -14,6 +15,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ title, description, tags, image, github, live, isActive = false }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <div
@@ -66,16 +68,17 @@ const ProjectCard = ({ title, description, tags, image, github, live, isActive =
               </span>
             ))}
           </div>
-          <div className="flex items-center gap-3 pt-2 mt-auto">
+          <div className="flex items-center gap-5 pt-2 mt-auto">
             {github && (
               <a
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Abrir repositório do projeto ${title}`}
-                className="text-muted-foreground hover:text-primary hover:scale-125 transition-all duration-300"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 flex items-center gap-1.5 text-sm font-medium"
               >
                 <Github className="w-4 h-4" />
+                Github
               </a>
             )}
             <a
@@ -83,9 +86,10 @@ const ProjectCard = ({ title, description, tags, image, github, live, isActive =
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Abrir site do projeto ${title}`}
-              className="text-muted-foreground hover:text-primary hover:scale-125 transition-all duration-300"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 flex items-center gap-1.5 text-sm font-medium"
             >
               <ExternalLink className="w-4 h-4" />
+              {t.visitPage}
             </a>
           </div>
         </CardContent>
