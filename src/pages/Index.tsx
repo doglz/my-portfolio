@@ -361,6 +361,14 @@ const Index = () => {
             {renderGoogleText(t.heroTitle1)}
             <span className="block text-foreground mt-2">{t.heroTitle2}</span>
           </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
+          >
+            {t.heroDescription}
+          </motion.p>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
