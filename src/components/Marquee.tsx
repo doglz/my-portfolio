@@ -1,18 +1,13 @@
-const items = [
-  "Alta Conversão",
-  "Design Estratégico",
-  "Entrega em até 7 dias",
-  "Copywriting Persuasivo",
-  "Mobile First",
-  "SEO Otimizado",
-];
-
-const loop = [...items, ...items];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const fadeMask =
   "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)";
 
 const Marquee = () => {
+  const { t } = useLanguage();
+  const items = t.marqueeItems || [];
+  const loop = [...items, ...items];
+
   return (
     <section
       aria-label="Diferenciais"

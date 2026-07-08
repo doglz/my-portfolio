@@ -30,33 +30,7 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.08 } },
 };
 
-const processSteps = [
-  {
-    icon: <MessageSquare className="w-5 h-5" />,
-    title: "Briefing",
-    description: "Conversamos para entender o seu negócio, público, oferta e os objetivos da página.",
-  },
-  {
-    icon: <Pencil className="w-5 h-5" />,
-    title: "Estrutura & Copy",
-    description: "Estruturo a página com foco em conversão e escrevo os textos que comunicam o valor da sua oferta.",
-  },
-  {
-    icon: <Palette className="w-5 h-5" />,
-    title: "Design",
-    description: "Visual alinhado à identidade da marca, totalmente responsivo para celular, tablet e desktop.",
-  },
-  {
-    icon: <Code2 className="w-5 h-5" />,
-    title: "Desenvolvimento & SEO",
-    description: "Programo com performance, aplico SEO básico e integro WhatsApp, mapa e métricas conforme o plano.",
-  },
-  {
-    icon: <Rocket className="w-5 h-5" />,
-    title: "Entrega & Ajustes",
-    description: "Entrega em até 7 dias úteis, com revisões e suporte de acordo com o plano contratado.",
-  },
-];
+
 
 type Plan = {
   name: string;
@@ -67,97 +41,9 @@ type Plan = {
   featured?: boolean;
 };
 
-const plans: Plan[] = [
-  {
-    name: "Portfólio",
-    price: "R$ 119,90",
-    description: "Focado no nicho de estética (manicures, lash designers), oferecendo uma vitrine rápida com galeria de serviços e botão pro WhatsApp.",
-    features: [
-      "Portfólio de serviços",
-      "Galeria com trabalhos",
-      "Botão para WhatsApp",
-      "Link para Instagram",
-      "Design responsivo",
-      "Suporte por 3 dias",
-      "Lista de procedimentos",
-    ],
-  },
-  {
-    name: "Profissional",
-    price: "R$ 699,90",
-    highlight: "mais escolhido",
-    featured: true,
-    description: "Focado em negócios locais que querem aparecer no Google, oferecendo domínio próprio, SEO básico e Google Maps.",
-    features: [
-      "Tudo do Portfólio",
-      "Domínio próprio",
-      "SEO básico",
-      "Copy personalizada",
-      "Design personalizado",
-      "Google Maps integrado",
-      "Hospedagem inclusa",
-      "Seção de diferenciais",
-      "Chamada estratégica",
-      "Suporte por 14 dias",
-    ],
-  },
-  {
-    name: "Premium",
-    price: "R$ 1.499,90",
-    description: "Focado em captação pesada de leads, oferecendo formulários, rastreamento de cliques e posicionamento especialista no Google Search Console.",
-    features: [
-      "Tudo do Profissional",
-      "Google Search Console",
-      "Formulário de captação",
-      "Hospedagem inclusa",
-      "Rastreamento de cliques",
-      "Animações leves",
-      "Suporte por 30 dias",
-      "Domínio por 3 anos",
-    ],
-  },
-];
 
-const featureGroups = [
-  {
-    title: "Portfólio",
-    items: [
-      { name: "Portfólio de serviços", description: "Página simples para apresentar procedimentos, especialidades e formas de contato." },
-      { name: "Galeria com trabalhos", description: "Mostra fotos de unhas, sobrancelhas, cílios, maquiagem ou outros resultados do seu atendimento." },
-      { name: "Botão para WhatsApp", description: "Leva o visitante direto para uma conversa de orçamento ou agendamento." },
-      { name: "Link para Instagram", description: "Conecta a página ao perfil onde o cliente pode ver mais trabalhos e acompanhar novidades." },
-      { name: "Design responsivo", description: "Visual adaptado para celular, que é onde a maioria dos clientes acessa." },
-      { name: "Suporte 3 dias", description: "Ajustes simples de texto, imagens e informações durante 3 dias após a entrega." },
-      { name: "Lista de procedimentos", description: "Organiza os serviços oferecidos para o cliente entender rapidamente o que pode contratar." },
-    ],
-  },
-  {
-    title: "Profissional",
-    items: [
-      { name: "Domínio próprio", description: "Endereço como empresa.com.br, transmitindo profissionalismo e credibilidade." },
-      { name: "SEO básico", description: "Configurações para que o Google consiga encontrar e indexar a página." },
-      { name: "Copy personalizada", description: "Textos criados para comunicar a oferta com clareza e convencer o visitante." },
-      { name: "Design personalizado", description: "Visual alinhado às cores, fonte e identidade da marca." },
-      { name: "Google Maps", description: "Mapa incorporado na página para facilitar a chegada de novos clientes." },
-      { name: "Hospedagem inclusa", description: "Site publicado e hospedado sem custo extra durante o período combinado." },
-      { name: "Seção de diferenciais", description: "Destaca os motivos pelos quais o cliente deve escolher a empresa." },
-      { name: "Chamada estratégica", description: "Frases e botões posicionados para incentivar o contato ou agendamento." },
-      { name: "Suporte 14 dias", description: "Ajustes de texto, imagens e informações durante 14 dias após a entrega." },
-    ],
-  },
-  {
-    title: "Premium",
-    items: [
-      { name: "Search Console", description: "Monitora se o site está aparecendo no Google e quais buscas geram cliques." },
-      { name: "Formulário de captação", description: "Coleta nome e contato de visitantes interessados para abordagem posterior." },
-      { name: "Hospedagem inclusa", description: "Site publicado e hospedado sem custo extra durante o período combinado." },
-      { name: "Rastreamento de cliques", description: "Registra cliques nos botões de WhatsApp e CTA para medir resultados." },
-      { name: "Animações leves", description: "Efeitos visuais sutis que enriquecem a experiência sem prejudicar velocidade." },
-      { name: "Suporte 30 dias", description: "Ajustes de texto, imagens e informações durante 30 dias após a entrega." },
-      { name: "Domínio por 3 anos", description: "Registro do domínio incluído por 3 anos, sem custo extra nesse período." },
-    ],
-  },
-];
+
+
 
 
 
@@ -181,6 +67,7 @@ const renderGoogleText = (text: string) => {
 };
 
 const Index = () => {
+  const { t, language, setLanguage } = useLanguage();
   const heroRef = useRef<HTMLElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
@@ -192,14 +79,14 @@ const Index = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [selectedProcessIndex, setSelectedProcessIndex] = useState(0);
   const [selectedPricingIndex, setSelectedPricingIndex] = useState(1);
-  const [openFeatureGroup, setOpenFeatureGroup] = useState<string | null>("Portfólio");
+  const [openFeatureGroup, setOpenFeatureGroup] = useState<number | null>(0);
   const [contactForm, setContactForm] = useState({
     name: "",
     businessType: "",
     plan: "",
     message: "",
   });
-  const { t, language, setLanguage } = useLanguage();
+
   const navLinks = [
     { href: "#sobre", label: t.navAbout },
     { href: "#projetos", label: t.navProjects },
@@ -250,6 +137,16 @@ const Index = () => {
       live: "https://robuxstationdc.com/",
     },
   ];
+  const processStepsIcons = [
+    <MessageSquare className="w-5 h-5" />,
+    <Pencil className="w-5 h-5" />,
+    <Palette className="w-5 h-5" />,
+    <Code2 className="w-5 h-5" />,
+    <Rocket className="w-5 h-5" />
+  ];
+  const processSteps = t.processSteps.map((step, i) => ({ ...step, icon: processStepsIcons[i] }));
+  const plans = (t.plansList as Plan[]).map(p => ({...p, featured: p.highlight === "mais escolhido" || p.highlight === "most popular" || p.highlight === "vip"}));
+  const featureGroups = t.featureGroupsList;
   const mainPlans = plans;
 
   const onSelect = useCallback(() => {
@@ -296,18 +193,18 @@ const Index = () => {
     event.preventDefault();
 
     const text = [
-      "Olá, Douglas! Vim pelo site e quero conversar sobre uma landing page.",
+      language === 'en' ? 'Hi Douglas! I came from your website and want to talk about a landing page.' : 'Olá, Douglas! Vim pelo site e quero conversar sobre uma landing page.',
       "",
-      `Nome: ${contactForm.name || "Não informado"}`,
-      `Tipo de negócio: ${contactForm.businessType}`,
-      `Plano de interesse: ${contactForm.plan}`,
-      contactForm.message ? `Sobre o projeto: ${contactForm.message}` : null,
+      language === 'en' ? `Name: ${contactForm.name || 'Not provided'}` : `Nome: ${contactForm.name || 'Não informado'}`, 
+      language === 'en' ? `Business type: ${contactForm.businessType}` : `Tipo de negócio: ${contactForm.businessType}`,
+      language === 'en' ? `Plan of interest: ${contactForm.plan}` : `Plano de interesse: ${contactForm.plan}`,
+      contactForm.message ? (language === 'en' ? `About the project: ${contactForm.message}` : `Sobre o projeto: ${contactForm.message}`) : null,
     ].filter(Boolean).join("\n");
 
     window.open(waLink(text), "_blank", "noopener,noreferrer");
   };
 
-  const renderPlanCard = (plan: Plan) => (
+  const renderPlanCard = (plan: Plan, isWide: boolean = false) => (
     <Card
       className={`relative h-full p-6 lg:p-8 flex flex-col transition-all duration-300 ${
         plan.featured
@@ -331,10 +228,10 @@ const Index = () => {
         <div className="flex items-baseline gap-2">
           <span className="text-3xl lg:text-4xl font-bold tracking-tight">{plan.price}</span>
         </div>
-        <span className="text-xs text-muted-foreground mt-1 block">50% antes e 50% após a conclusão</span>
+        <span className="text-xs text-muted-foreground mt-1 block">{t.paymentDisclaimer}</span>
       </div>
 
-      <ul className="space-y-2 lg:space-y-3 mb-6 lg:mb-8 flex-1">
+      <ul className={`space-y-2 lg:space-y-3 mb-6 lg:mb-8 flex-1 ${isWide ? "lg:grid lg:grid-cols-2 lg:gap-x-8 lg:space-y-0 lg:gap-y-3" : ""}`}>
         {plan.features.map((feature) => (
           <li key={feature} className="flex items-start gap-3 text-sm">
             <Check className={`w-4 h-4 mt-0.5 shrink-0 ${plan.featured ? "text-primary" : "text-primary/70"}`} />
@@ -350,7 +247,7 @@ const Index = () => {
         className="rounded-full font-semibold w-full transition-all duration-300 hover:scale-[1.02]"
       >
         <a href={waLinkForPlan(plan.name)} target="_blank" rel="noopener noreferrer">
-          Quero esse plano
+          {t.planButton}
           <ArrowRight className="w-4 h-4" />
         </a>
       </Button>
@@ -396,6 +293,14 @@ const Index = () => {
           </div>
           <div className="flex items-center gap-3 md:hidden">
             <button
+              onClick={() => setLanguage(language === "en" ? "pt" : "en")}
+              className="flex items-center gap-1.5 hover:text-primary transition-colors text-muted-foreground hover:bg-secondary/50 px-2 py-1 rounded-md"
+              aria-label="Toggle language"
+            >
+              <Globe className="w-4 h-4" />
+              <span className="font-medium text-xs uppercase">{language}</span>
+            </button>
+            <button
               className="text-muted-foreground"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
@@ -427,19 +332,6 @@ const Index = () => {
                     {link.label}
                   </a>
                 ))}
-                <button
-                  onClick={() => {
-                    setLanguage(language === "en" ? "pt" : "en");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="flex items-center gap-2 hover:text-foreground transition-colors mt-2 pt-4 border-t border-border/50 text-left"
-                  aria-label="Toggle language"
-                >
-                  <Globe className="w-4 h-4" />
-                  <span className="font-medium uppercase text-xs">
-                    {language === "en" ? "Mudar para Português" : "Switch to English"}
-                  </span>
-                </button>
               </div>
             </motion.div>
           )}
@@ -503,7 +395,7 @@ const Index = () => {
       </section>
 
       <div className="pt-24 pb-8 text-center text-sm font-semibold text-muted-foreground uppercase tracking-widest">
-        Empresas que confiam no meu trabalho
+        {t.trustMarquee}
       </div>
       <Marquee />
 
@@ -642,13 +534,13 @@ const Index = () => {
             variants={stagger}
           >
             <motion.div variants={fadeUp}>
-              <Badge variant="outline" className="mb-4 text-primary border-primary/30 font-mono text-xs">// processo</Badge>
+              <Badge variant="outline" className="mb-4 text-primary border-primary/30 font-mono text-xs">{t.processTag}</Badge>
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold tracking-tight">
-              Como <span className="text-primary">trabalhamos</span>
+              {t.processTitle1}<span className="text-primary">{t.processTitle2}</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Um fluxo simples e transparente, do primeiro contato à página no ar.
+              {t.processSubtitle}
             </motion.p>
           </motion.div>
 
@@ -721,10 +613,12 @@ const Index = () => {
 
                         <div className="mt-6 rounded-md border border-border/50 bg-secondary/20 p-4 sm:mt-8">
                           <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground mb-2">
-                            O que você recebe nessa fase
+                            {language === 'en' ? 'What you get in this stage' : 'O que você recebe nessa fase'}
                           </div>
                           <p className="text-sm leading-relaxed text-foreground/85">
-                            Alinhamento claro do próximo passo, sem reunião desnecessária e sem você precisar entender a parte técnica.
+                            {language === 'en' 
+                              ? 'Clear alignment of the next step, no unnecessary meetings, and no need for you to understand the technical side.' 
+                              : 'Alinhamento claro do próximo passo, sem reunião desnecessária e sem você precisar entender a parte técnica.'}
                           </p>
                         </div>
 
@@ -807,17 +701,18 @@ const Index = () => {
             variants={stagger}
           >
             <motion.div variants={fadeUp}>
-              <Badge variant="outline" className="mb-4 text-primary border-primary/30 font-mono text-xs">// planos</Badge>
+              <Badge variant="outline" className="mb-4 text-primary border-primary/30 font-mono text-xs">{t.pricingTag}</Badge>
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold tracking-tight">
-              Escolha o plano <span className="text-primary">ideal</span>
+              {t.pricingTitle1}<span className="text-primary">{t.pricingTitle2}</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Entrega em até 7 dias úteis para todos os planos. Pagamento em duas partes: metade antes e metade após a conclusão.
+              {t.pricingSubtitle}
             </motion.p>
           </motion.div>
 
           <motion.div
+            key={language + "_mobile"}
             className="lg:hidden"
             initial="hidden"
             whileInView="visible"
@@ -839,7 +734,7 @@ const Index = () => {
                 onClick={() => pricingEmblaApi?.scrollPrev()}
                 disabled={!canScrollPricingPrev}
                 className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                aria-label="Plano anterior"
+                aria-label={language === 'en' ? 'Previous plan' : 'Plano anterior'}
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -849,7 +744,7 @@ const Index = () => {
                     key={plan.name}
                     onClick={() => pricingEmblaApi?.scrollTo(i)}
                     className={`h-2 rounded-full transition-all duration-300 ${selectedPricingIndex === i ? "w-8 bg-primary" : "w-2 bg-border hover:bg-primary/50"}`}
-                    aria-label={`Ir para o plano ${plan.name}`}
+                    aria-label={language === 'en' ? `Go to plan ${plan.name}` : `Ir para o plano ${plan.name}`}
                   />
                 ))}
               </div>
@@ -857,7 +752,7 @@ const Index = () => {
                 onClick={() => pricingEmblaApi?.scrollNext()}
                 disabled={!canScrollPricingNext}
                 className="w-10 h-10 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                aria-label="Próximo plano"
+                aria-label={language === 'en' ? 'Next plan' : 'Próximo plano'}
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -865,17 +760,23 @@ const Index = () => {
           </motion.div>
 
           <motion.div
+            key={language + "_desktop"}
             className="hidden lg:grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
           >
-            {mainPlans.map((plan, i) => (
-              <motion.div key={plan.name} variants={fadeUp} custom={i} className={plan.featured ? "lg:-translate-y-3" : ""}>
+            {mainPlans.slice(0, 3).map((plan, i) => (
+              <motion.div key={i} variants={fadeUp} custom={i} className={plan.featured ? "lg:-translate-y-3" : ""}>
                 {renderPlanCard(plan)}
               </motion.div>
             ))}
+            {mainPlans.length > 3 && (
+              <motion.div variants={fadeUp} custom={3} className="lg:col-span-3 mt-4">
+                {renderPlanCard(mainPlans[3], true)}
+              </motion.div>
+            )}
           </motion.div>
 
 
@@ -887,13 +788,13 @@ const Index = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Entrega em até 7 dias úteis para todos os planos. Você pode pagar 50% antes do início e 50% após a conclusão.
+            {t.pricingSubtitle}
           </motion.p>
         </div>
       </section>
 
       {/* Detalhes dos recursos */}
-      <section id="detalhes" className="py-20 sm:py-32 px-6">
+      <section id="detalhes" className="py-16 sm:py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
             className="text-center mb-12 sm:mb-16"
@@ -903,38 +804,39 @@ const Index = () => {
             variants={stagger}
           >
             <motion.div variants={fadeUp}>
-              <Badge variant="outline" className="mb-4 text-primary border-primary/30 font-mono text-xs">// detalhes</Badge>
+              <Badge variant="outline" className="mb-4 text-primary border-primary/30 font-mono text-xs">{t.detailsTag}</Badge>
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold tracking-tight">
-              O que <span className="text-primary">cada recurso</span> faz
+              {t.detailsTitle1}<span className="text-primary">{t.detailsTitle2}</span>{t.detailsTitle3}
             </motion.h2>
             <motion.p variants={fadeUp} className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              A descrição de tudo que está incluído em cada plano, sem jargão técnico.
+              {t.detailsSubtitle}
             </motion.p>
           </motion.div>
 
           <motion.div
+            key={language + "_details"}
             className="space-y-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
           >
-            {featureGroups.map((group) => (
-              <motion.div key={group.title} variants={fadeUp}>
+            {featureGroups.map((group, featureIndex) => (
+              <motion.div key={featureIndex} variants={fadeUp}>
                 <Card className="bg-card border-border/50 overflow-hidden">
                   <button
                     type="button"
-                    onClick={() => setOpenFeatureGroup(openFeatureGroup === group.title ? null : group.title)}
+                    onClick={() => setOpenFeatureGroup(openFeatureGroup === featureIndex ? null : featureIndex)}
                     className="flex w-full items-center justify-between border-l-2 border-primary bg-primary/5 px-6 py-4 text-left transition-colors hover:bg-primary/10"
-                    aria-expanded={openFeatureGroup === group.title}
+                    aria-expanded={openFeatureGroup === featureIndex}
                   >
                     <span className="font-semibold text-primary">{group.title}</span>
-                    <ChevronDown className={`h-4 w-4 transition-transform ${openFeatureGroup === group.title ? "rotate-180 text-primary" : "text-muted-foreground"}`} />
+                    <ChevronDown className={`h-4 w-4 transition-transform ${openFeatureGroup === featureIndex ? "rotate-180 text-primary" : "text-muted-foreground"}`} />
                   </button>
 
                   <AnimatePresence initial={false}>
-                    {openFeatureGroup === group.title && (
+                    {openFeatureGroup === featureIndex && (
                       <motion.div
                         className="divide-y divide-border/40 overflow-hidden"
                         initial={{ height: 0, opacity: 0 }}
@@ -962,7 +864,7 @@ const Index = () => {
       </section>
 
       {/* Megafooter Contato */}
-      <section id="contato" className="relative pt-32 pb-12 px-4 sm:px-6 overflow-hidden flex flex-col items-center justify-center min-h-[70vh]">
+      <section id="contato" className="relative pt-12 pb-12 px-4 sm:px-6 overflow-hidden flex flex-col items-center justify-center min-h-[70vh]">
         {/* Glow de fundo pro footer */}
         <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.05)_0%,transparent_70%)] pointer-events-none z-0" />
         
@@ -975,7 +877,7 @@ const Index = () => {
         >
           <motion.div variants={fadeUp}>
             <h2 className="text-[12vw] sm:text-[8vw] font-bold tracking-tighter leading-none mb-8 text-foreground/90 uppercase">
-              Vamos Conversar?
+              {t.megaFooter}
             </h2>
           </motion.div>
           
@@ -987,13 +889,13 @@ const Index = () => {
             <Button asChild size="lg" className="rounded-full font-bold px-10 py-7 text-lg transition-transform hover:scale-[1.02] shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]">
               <a href={waLink()} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="w-5 h-5 mr-2" />
-                Falar no WhatsApp
+                {t.talkToMe}
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full font-bold px-10 py-7 text-lg transition-transform hover:scale-[1.02] bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10">
               <a href="https://www.instagram.com/douglz.code/" target="_blank" rel="noopener noreferrer">
-                <Instagram className="w-5 h-5 mr-2" /> 
-                Ver Instagram
+                <Instagram className="w-5 h-5 mr-2" />
+                {t.viewInstagram}
               </a>
             </Button>
           </motion.div>
@@ -1002,7 +904,7 @@ const Index = () => {
         {/* Small Footer base */}
         <div className="relative z-10 border-t border-white/10 pt-8 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground">
           <span>{t.footer}</span>
-          <span className="mt-4 md:mt-0 opacity-70">Design minimalista e de alta conversão.</span>
+          <span className="mt-4 md:mt-0 opacity-70">{language === 'en' ? 'Minimalist and high-conversion design.' : 'Design minimalista e de alta conversão.'}</span>
         </div>
       </section>
 
