@@ -440,10 +440,10 @@ const Index = () => {
             variants={stagger}
           >
             {[
-              { val: "7 dias", label: t.statYear },
-              { val: "Conversão", label: t.statSEO },
-              { val: "Até 3x", label: t.statCopy },
-              { val: "Direto", label: t.statBranding },
+              { val: t.statYearVal, label: t.statYear },
+              { val: t.statSEOVal, label: t.statSEO },
+              { val: t.statCopyVal, label: t.statCopy },
+              { val: t.statBrandingVal, label: t.statBranding },
             ].map((item, i) => (
               <motion.div key={i} variants={fadeUp} custom={i} className="group relative">
                 <Card className="relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10">

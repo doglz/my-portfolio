@@ -284,7 +284,7 @@ const translations = {
     contactFormSubmit: 'Send message',
     statYearVal: '7 days',
     statSEOVal: 'Conversion',
-    statCopyVal: 'Up to 3x',
+    statCopyVal: 'Up to 2x',
     statBrandingVal: 'Direct',
 
     available: "Landing pages delivered in up to 7 days",
