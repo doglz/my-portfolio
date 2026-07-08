@@ -339,10 +339,10 @@ const Index = () => {
       </motion.nav>
 
       {/* Hero */}
-      <section ref={heroRef} className="min-h-screen flex items-center justify-center relative px-6 overflow-hidden">
+      <section ref={heroRef} className="min-h-[100dvh] flex flex-col items-center justify-center relative px-6 overflow-hidden pt-24 pb-8">
 
 
-        <motion.div className="w-full max-w-7xl text-center relative z-10" style={{ opacity: heroOpacity }}>
+        <motion.div className="w-full max-w-7xl text-center relative z-10 flex-1 flex flex-col items-center justify-center pt-12" style={{ opacity: heroOpacity }}>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -361,14 +361,7 @@ const Index = () => {
             {renderGoogleText(t.heroTitle1)}
             <span className="block text-foreground mt-2">{t.heroTitle2}</span>
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-6 leading-relaxed"
-          >
-            {t.heroDescription}
-          </motion.p>
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -388,7 +381,7 @@ const Index = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-16 sm:bottom-14 left-1/2 -translate-x-1/2 text-muted-foreground animate-bounce z-10"
+          className="text-muted-foreground animate-bounce z-10 mt-auto"
         >
           <ChevronDown className="w-6 h-6" />
         </motion.a>
