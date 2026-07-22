@@ -691,7 +691,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Planos */}
+      {false && ( <>
+      {/* Planos (Standby para Portfólio)
       <section id="planos" className="py-20 sm:py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -863,6 +864,8 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      </> )}
 
       {/* Megafooter Contato */}
       <section id="contato" className="relative pt-12 pb-12 px-4 sm:px-6 overflow-hidden flex flex-col items-center justify-center min-h-[70vh]">
