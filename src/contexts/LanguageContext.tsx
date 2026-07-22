@@ -13,11 +13,11 @@ const translations = {
       { title: 'Loja de Jogos', location: 'Internacional', tags: ['Loja de Jogos', 'Internacional'] }
     ],
     processSteps: [
-      { title: 'Briefing e Estratégia', description: 'Entendemos seu negócio, público e objetivos para criar uma comunicação certeira.' },
-      { title: 'Copy e Conteúdo', description: 'Escrevemos os textos usando gatilhos mentais e técnicas de SEO para ranquear no Google.' },
-      { title: 'Design e UI', description: 'Criamos a identidade visual da página, garantindo que seja moderna e transmita confiança.' },
-      { title: 'Desenvolvimento', description: 'Transformamos o design em código otimizado, rápido e totalmente responsivo.' },
-      { title: 'Entrega e Ajustes', description: 'Entrega em até 7 dias úteis, com revisões e suporte de acordo com o plano contratado.' }
+      { title: 'Descoberta & Planejamento', description: 'Entendo a necessidade do projeto, defino a arquitetura e escolho a melhor stack tecnológica.' },
+      { title: 'Design & UX', description: 'Caso necessário, elaboro interfaces no Figma, garantindo uma experiência moderna e focada no usuário.' },
+      { title: 'Desenvolvimento', description: 'Transformo protótipos em código limpo, componentizado e performático usando o ecossistema React.' },
+      { title: 'Testes & Otimização', description: 'Garanto responsividade impecável, acessibilidade e otimizo métricas de performance (Lighthouse/SEO).' },
+      { title: 'Deploy & Handoff', description: 'Coloco a aplicação no ar, configurando CI/CD e entrego o código-fonte devidamente documentado.' }
     ],
     plansList: [
       {
@@ -107,7 +107,7 @@ const translations = {
     processTag: '// processo',
     pricingTag: '// planos',
     detailsTag: '// detalhes',
-    processSubtitle: 'Um fluxo simples e transparente, do primeiro contato à página no ar.',
+    processSubtitle: 'Um fluxo simples, transparente e focado em entregar a melhor solução técnica.',
     pricingSubtitle: 'Landing pages entregues em até 7 dias úteis. Sistemas em até 14 dias. Pagamento em até 3 vezes, 50% antes e 50% na entrega.',
     detailsTitle1: 'O que ',
     detailsTitle2: 'cada recurso',
@@ -173,11 +173,11 @@ const translations = {
       { title: 'Game Store', location: 'International', tags: ['Game Store', 'International'] }
     ],
     processSteps: [
-      { title: 'Briefing & Strategy', description: 'We understand your business, audience, and goals to create accurate communication.' },
-      { title: 'Copy & Content', description: 'We write texts using mental triggers and SEO techniques to rank on Google.' },
-      { title: 'Design & UI', description: 'We create the visual identity of the page, ensuring it is modern and trustworthy.' },
-      { title: 'Development', description: 'We turn the design into optimized, fast, and fully responsive code.' },
-      { title: 'Delivery & Adjustments', description: 'Delivery in up to 7 business days, with revisions and support according to the contracted plan.' }
+      { title: 'Discovery & Planning', description: 'I gather requirements, define the architecture, and choose the most suitable tech stack for the problem.' },
+      { title: 'Design & UX', description: 'If needed, I design UI mockups in Figma, ensuring a modern and user-centric experience.' },
+      { title: 'Development', description: 'I translate designs into clean, component-based, and highly performant code using the React ecosystem.' },
+      { title: 'Testing & Optimization', description: 'I ensure flawless responsiveness, accessibility, and optimize performance metrics (Lighthouse/SEO).' },
+      { title: 'Deploy & Handoff', description: 'I deploy the application, set up CI/CD pipelines, and deliver well-documented source code.' }
     ],
     plansList: [
       {
@@ -267,7 +267,7 @@ const translations = {
     processTag: '// process',
     pricingTag: '// plans',
     detailsTag: '// details',
-    processSubtitle: 'A simple and transparent flow, from the first contact to the live page.',
+    processSubtitle: 'A simple, transparent workflow focused on delivering the best technical solution.',
     pricingSubtitle: 'Landing pages delivered in up to 7 business days. Systems in up to 14 days. Payment in 2 installments: 50% upfront and 50% on delivery.',
     detailsTitle1: 'What ',
     detailsTitle2: 'each feature',
