@@ -13,10 +13,27 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const WhatsAppFloat = () => {
+interface WhatsAppFloatProps {
+  number?: string;
+  variant?: "green" | "purple";
+  message?: string;
+}
+
+const WhatsAppFloat = ({
+  number,
+  variant = "green",
+  message = "Olá, Douglas! Vim pelo site e queria saber mais sobre os serviços.",
+}: WhatsAppFloatProps) => {
+  const bgClass =
+    variant === "purple"
+      ? "bg-purple-600 shadow-lg shadow-purple-600/40 hover:shadow-purple-600/60"
+      : "bg-[#25D366] shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50";
+
+  const pingClass = variant === "purple" ? "bg-purple-500" : "bg-[#25D366]";
+
   return (
     <motion.a
-      href={waLink("Olá, Douglas! Vim pelo site e queria saber mais sobre as landing pages.")}
+      href={waLink(message, number)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
@@ -25,9 +42,9 @@ const WhatsAppFloat = () => {
       transition={{ delay: 1.2, type: "spring", stiffness: 260, damping: 20 }}
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 transition-shadow"
+      className={`fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full text-white transition-all ${bgClass}`}
     >
-      <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30" />
+      <span className={`absolute inset-0 rounded-full ${pingClass} animate-ping opacity-30`} />
       <WhatsAppIcon className="w-7 h-7 sm:w-8 sm:h-8 relative z-10" />
     </motion.a>
   );
