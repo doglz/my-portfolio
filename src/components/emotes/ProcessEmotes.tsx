@@ -30,7 +30,7 @@ const stages = [
     titlePt: "Entrega Final",
     titleEn: "Final Hand-off",
     textPt: "Arquivos PNG testados e compactados nos tamanhos oficiais para upload.",
-    textEn: "PNG package tested and organized into Twitch & Discord ready folders.",
+    textEn: "PNG package tested and organized into Stream & Discord ready folders.",
   },
 ];
 

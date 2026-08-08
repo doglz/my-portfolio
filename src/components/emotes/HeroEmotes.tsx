@@ -26,7 +26,7 @@ export function HeroEmotes() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-purple-500/30 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-purple-300 bg-purple-950/20 backdrop-blur"
           >
             <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
-            {language === "pt" ? "Estúdio de Emotes · Twitch & Discord" : "Emotes Studio · Twitch & Discord"}
+            {language === "pt" ? "Estúdio de Emotes · Stream & Discord" : "Emotes Studio · Stream & Discord"}
           </motion.div>
 
           {/* Heading Reveal */}
@@ -102,8 +102,8 @@ export function HeroEmotes() {
             className="max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg text-center lg:text-left"
           >
             {language === "pt"
-              ? "Emotes personalizados sob medida para Twitch e Discord. Destaque sua personalidade e fortaleça sua comunidade com artes exclusivas."
-              : "Tailor-made custom emotes for Twitch and Discord. Highlight your personality and boost your community with exclusive artwork."}
+              ? "Emotes personalizados sob medida para Stream e Discord. Destaque sua personalidade e fortaleça sua comunidade com artes exclusivas."
+              : "Tailor-made custom emotes for Stream and Discord. Highlight your personality and boost your community with exclusive artwork."}
           </motion.p>
 
           <motion.div

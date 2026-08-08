@@ -15,10 +15,10 @@ export function DifferentialsEmotes() {
       emote: emotes.joia,
     },
     {
-      titlePt: "Tamanhos oficiais Twitch & Discord",
-      titleEn: "Twitch & Discord sizes",
-      textPt: "Exportados em 112px, 56px e 28px para encaixe perfeito.",
-      textEn: "Exported in 112px, 56px and 28px for crisp display.",
+      titlePt: "Tamanhos para Stream & Discord",
+      titleEn: "Stream & Discord sizes",
+      textPt: "Exportados nos tamanhos ideais para encaixe perfeito nas plataformas.",
+      textEn: "Exported in ideal dimensions for crisp display across platforms.",
       emote: emotes.salute,
     },
     {

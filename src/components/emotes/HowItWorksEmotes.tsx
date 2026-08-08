@@ -28,8 +28,8 @@ export function HowItWorksEmotes() {
       stepNum: "03",
       titlePt: "3. Receba no formato certo",
       titleEn: "3. Delivery ready to upload",
-      textPt: "Arquivos PNG transparentes cortados exatamente nos tamanhos da Twitch.",
-      textEn: "Transparent PNG files pre-resized for Twitch (112px, 56px, 28px).",
+      textPt: "Arquivos PNG transparentes cortados nos tamanhos ideais para Stream e Discord.",
+      textEn: "Transparent PNG files pre-resized for Stream & Discord.",
     },
   ];
 

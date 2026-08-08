@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { motion, useSpring } from "framer-motion";
 
-export function CustomEmotesCursor() {
-  const [isVisible, setIsVisible] = useState(false);
+interface CustomEmotesCursorProps {
+  variant?: "default" | "purple";
+}
+
+export function CustomEmotesCursor({ variant = "purple" }: CustomEmotesCursorProps = {}) {
+  const [isVisible, setIsVisible] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
 
@@ -17,7 +21,7 @@ export function CustomEmotesCursor() {
     const handleMouseMove = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
     };
 
     const handleMouseLeave = () => setIsVisible(false);
@@ -52,12 +56,22 @@ export function CustomEmotesCursor() {
       window.removeEventListener("mouseup", handleMouseUp);
       window.removeEventListener("mouseover", handleMouseOver);
     };
-  }, [cursorX, cursorY, isVisible]);
+  }, [cursorX, cursorY]);
+
+  const isDefault = variant === "default";
+
+  const ringStyles = isDefault
+    ? "border-white/50 bg-white/10 shadow-[0_0_15px_rgba(255,255,255,0.35)] backdrop-blur-[1px]"
+    : "border-purple-400 bg-purple-500/20 shadow-[0_0_15px_rgba(168,85,247,0.6)] backdrop-blur-[1px]";
+
+  const dotStyles = isDefault
+    ? "bg-white shadow-[0_0_10px_rgba(255,255,255,0.9)]"
+    : "bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,1)]";
 
   return (
     <motion.div
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-[9999] hidden md:block"
+      className="pointer-events-none fixed left-0 top-0 z-[9999] hidden md:flex items-center justify-center w-8 h-8"
       style={{
         x: cursorX,
         y: cursorY,
@@ -65,17 +79,26 @@ export function CustomEmotesCursor() {
         translateY: "-50%",
       }}
     >
-      {/* Trailing Purple Ring */}
+      {/* Trailing Outer Ring */}
       <motion.div
         animate={{
           scale: isClicking ? 0.75 : isHovered ? 1.6 : 1,
-          opacity: isVisible ? (isHovered ? 0.9 : 0.45) : 0,
+          opacity: isVisible ? (isHovered ? 0.95 : 0.7) : 0,
         }}
         transition={{ type: "spring", stiffness: 350, damping: 24 }}
-        className="h-8 w-8 rounded-full border border-purple-400/80 bg-purple-500/15 shadow-[0_0_15px_rgba(168,85,247,0.3)] backdrop-blur-[1px]"
+        className={`absolute inset-0 rounded-full border-2 ${ringStyles}`}
       />
-      {/* Center Purple Pointer Dot */}
-      <div className="absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.9)]" />
+      {/* Center Pointer Dot */}
+      <motion.div
+        animate={{
+          scale: isClicking ? 0.6 : isHovered ? 1.3 : 1,
+          opacity: isVisible ? 1 : 0,
+        }}
+        transition={{ type: "spring", stiffness: 350, damping: 24 }}
+        className={`h-2 w-2 rounded-full ${dotStyles}`}
+      />
     </motion.div>
   );
 }
+
+

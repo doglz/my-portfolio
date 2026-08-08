@@ -5,10 +5,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const faqs = [
   {
-    qPt: "Os emotes funcionam perfeitamente na Twitch e Discord?",
-    qEn: "Do emotes work seamlessly on Twitch and Discord?",
-    aPt: "Sim! Entregamos os arquivos em formato PNG com fundo transparente em 112x112, 56x56 e 28x28 pixels, testados e otimizados para nitidez em qualquer modo (dark ou light).",
-    aEn: "Yes! Delivered in PNG format with transparent backgrounds in 112x112, 56x56 and 28x28 pixels, tested for perfect legibility in both light & dark mode.",
+    qPt: "Os emotes funcionam em plataformas de Stream e Discord?",
+    qEn: "Do emotes work seamlessly on Stream platforms and Discord?",
+    aPt: "Sim! Entregamos os arquivos em formato PNG com fundo transparente nos tamanhos padrão (como 112x112, 56x56 e 28x28 pixels), testados e otimizados para nitidez em qualquer plataforma e modo (dark ou light).",
+    aEn: "Yes! Delivered in PNG format with transparent backgrounds in standard sizes (112x112, 56x56 and 28x28 pixels), tested for crisp display across streaming platforms and modes.",
   },
   {
     qPt: "Posso utilizar o meu próprio personagem / mascote / VTuber?",

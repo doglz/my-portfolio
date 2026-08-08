@@ -20,7 +20,7 @@ export function SiteHeaderEmotes() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-6">
           <Link
-            to="/"
+            to="/portfolio"
             className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-muted-foreground hover:text-purple-400 transition-colors duration-300"
           >
             <ArrowLeft className="w-4 h-4 text-purple-400" />
@@ -134,8 +134,8 @@ export function SiteFooterEmotes() {
             </a>
             <p className="max-w-sm text-xs leading-relaxed text-muted-foreground">
               {language === "pt"
-                ? "Ilustrações e emotes personalizados sob medida para Twitch & Discord. Transformando seu chat e fortalecendo sua comunidade com artes exclusivas."
-                : "Tailor-made custom illustrations and emotes for Twitch & Discord. Elevating your chat and community with unique art."}
+                ? "Ilustrações e emotes personalizados sob medida para Stream & Discord. Transformando seu chat e fortalecendo sua comunidade com artes exclusivas."
+                : "Tailor-made custom illustrations and emotes for Stream & Discord. Elevating your chat and community with unique art."}
             </p>
           </div>
 
@@ -153,7 +153,7 @@ export function SiteFooterEmotes() {
                 </li>
               ))}
               <li>
-                <Link to="/" className="hover:text-purple-400 transition-colors">
+                <Link to="/portfolio" className="hover:text-purple-400 transition-colors">
                   ← {language === "pt" ? "Portfólio Principal" : "Main Portfolio"}
                 </Link>
               </li>
