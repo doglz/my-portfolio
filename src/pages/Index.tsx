@@ -15,6 +15,7 @@ import ProjectCard from "@/components/ProjectCard";
 import Marquee from "@/components/Marquee";
 import WhatsAppFloat, { WhatsAppIcon } from "@/components/WhatsAppFloat";
 import { Header } from "@/components/Header";
+import { SectionDotNav } from "@/components/SectionDotNav";
 import { waLink, waLinkForPlan } from "@/lib/whatsapp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -265,6 +266,7 @@ const Index = () => {
       </div>
       {/* Header Nav */}
       <Header />
+      <SectionDotNav />
 
       {/* Hero */}
       <section ref={heroRef} className="min-h-[100dvh] flex flex-col items-center justify-center relative px-6 overflow-hidden pt-24 pb-8">

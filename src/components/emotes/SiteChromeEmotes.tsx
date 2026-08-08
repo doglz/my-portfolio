@@ -1,9 +1,19 @@
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { waLinkForEmotes } from "@/lib/whatsapp";
 import { Header } from "@/components/Header";
+
+const footerLinks = [
+  { href: "#galeria", labelPt: "Galeria", labelEn: "Gallery" },
+  { href: "#como-funciona", labelPt: "Diferenciais", labelEn: "Features" },
+  { href: "#processo-emotes", labelPt: "Processo", labelEn: "Process" },
+  { href: "#planos", labelPt: "Planos", labelEn: "Pricing" },
+  { href: "#faq", labelPt: "FAQ", labelEn: "FAQ" },
+];
 
 export function SiteHeaderEmotes() {
   return <Header />;
 }
-
 
 export function SiteFooterEmotes() {
   const { language } = useLanguage();
@@ -33,7 +43,7 @@ export function SiteFooterEmotes() {
               Navegação
             </h4>
             <ul className="space-y-2 font-mono text-xs text-muted-foreground">
-              {links.map((l) => (
+              {footerLinks.map((l) => (
                 <li key={l.href}>
                   <a href={l.href} className="hover:text-purple-400 transition-colors">
                     {language === "pt" ? l.labelPt : l.labelEn}
@@ -41,7 +51,7 @@ export function SiteFooterEmotes() {
                 </li>
               ))}
               <li>
-                <Link to="/portfolio" className="hover:text-purple-400 transition-colors">
+                <Link to="/" className="hover:text-purple-400 transition-colors">
                   ← {language === "pt" ? "Portfólio Principal" : "Main Portfolio"}
                 </Link>
               </li>

@@ -63,7 +63,7 @@ export function ProcessEmotes() {
   }, []);
 
   return (
-    <section className="border-t border-purple-900/30 py-20 lg:py-32">
+    <section id="processo-emotes" className="border-t border-purple-900/30 py-20 lg:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionLabel>{language === "pt" ? "processo criativo" : "creative process"}</SectionLabel>
         <h2 className="mb-16 max-w-2xl font-sans text-3xl font-bold tracking-tight text-foreground sm:text-4xl">

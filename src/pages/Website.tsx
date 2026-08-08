@@ -11,6 +11,7 @@ import { WebProcess } from "@/components/web/WebProcess";
 import { WebPricing } from "@/components/web/WebPricing";
 import { WebCta } from "@/components/web/WebCta";
 import { CustomWebCursor } from "@/components/web/CustomWebCursor";
+import { SectionDotNav } from "@/components/SectionDotNav";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -88,6 +89,7 @@ export default function Website() {
     <div className="min-h-screen bg-[#080808] text-foreground selection:bg-purple-600 selection:text-white relative md:cursor-none md:[&_*]:cursor-none">
       <CustomWebCursor />
       <SiteHeaderWeb />
+      <SectionDotNav />
       <main id="top">
         <WebHero />
         <WebShowcase />

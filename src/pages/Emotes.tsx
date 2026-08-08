@@ -13,6 +13,7 @@ import { PricingEmotes } from "@/components/emotes/PricingEmotes";
 import { FaqEmotes } from "@/components/emotes/FaqEmotes";
 import { FinalCtaEmotes } from "@/components/emotes/FinalCtaEmotes";
 import { CustomEmotesCursor } from "@/components/emotes/CustomEmotesCursor";
+import { SectionDotNav } from "@/components/SectionDotNav";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -90,6 +91,7 @@ export default function Emotes() {
     <div className="min-h-screen bg-background text-foreground selection:bg-purple-600 selection:text-white relative md:cursor-none md:[&_*]:cursor-none">
       <CustomEmotesCursor />
       <SiteHeaderEmotes />
+      <SectionDotNav />
       <main id="top">
         <HeroEmotes />
         <GalleryEmotes />

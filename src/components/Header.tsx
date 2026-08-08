@@ -15,43 +15,23 @@ export function Header({ customLinks }: HeaderProps = {}) {
 
   const isPt = language === "pt";
 
-  // Context-aware default links matching the portfolio design pattern
+  // Primary service/page navigation links
   const getDefaultLinks = () => {
-    if (location.pathname === "/emotes") {
-      return [
-        { href: "/", label: isPt ? "Portfólio" : "Portfolio" },
-        { href: "#galeria", label: isPt ? "Galeria" : "Gallery" },
-        { href: "#como-funciona", label: isPt ? "Diferenciais" : "Features" },
-        { href: "#processo-emotes", label: isPt ? "Processo" : "Process" },
-        { href: "#planos", label: isPt ? "Planos" : "Pricing" },
-        { href: "#faq", label: "FAQ" },
-        { href: "/website", label: isPt ? "Websites" : "Websites" },
-      ];
-    }
-    if (location.pathname === "/website") {
-      return [
-        { href: "/", label: isPt ? "Portfólio" : "Portfolio" },
-        { href: "#showcase", label: isPt ? "Projetos" : "Showcase" },
-        { href: "#servicos", label: isPt ? "Diferenciais" : "Features" },
-        { href: "#processo-web", label: isPt ? "Processo" : "Process" },
-        { href: "#planos-web", label: isPt ? "Planos" : "Pricing" },
-        { href: "/emotes", label: "Emotes" },
-        { href: "#contato-web", label: isPt ? "Contato" : "Contact" },
-      ];
-    }
-    // Main portfolio page
     return [
-      { href: "#sobre", label: isPt ? "Sobre" : "About" },
-      { href: "#projetos", label: isPt ? "Projetos" : "Projects" },
-      { href: "#processo", label: isPt ? "Processo" : "Process" },
-      { href: "#planos", label: isPt ? "Planos" : "Pricing" },
-      { href: "/emotes", label: "Emotes" },
-      { href: "/website", label: isPt ? "Websites" : "Websites" },
-      { href: "#contato", label: isPt ? "Contato" : "Contact" },
+      { href: "/", label: isPt ? "Portfólio" : "Portfolio" },
+      { href: "/website", label: isPt ? "Sites para Streamers" : "Streamer Websites" },
+      { href: "/emotes", label: isPt ? "Emotes para Streamers" : "Streamer Emotes" },
     ];
   };
 
   const navLinks = customLinks || getDefaultLinks();
+
+  const isLinkActive = (href: string) => {
+    if (href === "/") {
+      return location.pathname === "/" || location.pathname === "/portfolio";
+    }
+    return location.pathname.startsWith(href);
+  };
 
   const handleLogoClick = (e: React.MouseEvent) => {
     if (location.pathname === "/" || location.pathname === "/portfolio") {
@@ -78,13 +58,18 @@ export function Header({ customLinks }: HeaderProps = {}) {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
-          {navLinks.map((link) =>
-            link.href.startsWith("/") ? (
+        <div className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
+          {navLinks.map((link) => {
+            const active = isLinkActive(link.href);
+            return link.href.startsWith("/") ? (
               <Link
                 key={link.href}
                 to={link.href}
-                className="relative hover:text-primary transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                className={`relative transition-colors duration-300 py-1 ${
+                  active
+                    ? "text-primary font-semibold after:content-[''] after:absolute after:w-full after:scale-x-100 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-primary"
+                    : "hover:text-primary after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                }`}
               >
                 {link.label}
               </Link>
@@ -92,18 +77,18 @@ export function Header({ customLinks }: HeaderProps = {}) {
               <a
                 key={link.href}
                 href={link.href}
-                className="relative hover:text-primary transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                className="relative hover:text-primary transition-colors duration-300 py-1 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
               >
                 {link.label}
               </a>
-            )
-          )}
+            );
+          })}
           <button
             onClick={() => setLanguage(language === "en" ? "pt" : "en")}
-            className="flex items-center gap-1.5 hover:text-primary transition-colors text-muted-foreground hover:bg-secondary/50 px-2 py-1 rounded-md"
+            className="flex items-center gap-1.5 hover:text-primary transition-colors text-muted-foreground hover:bg-secondary/50 px-2.5 py-1 rounded-md border border-border/40"
             aria-label="Toggle language"
           >
-            <Globe className="w-4 h-4" />
+            <Globe className="w-4 h-4 text-primary" />
             <span className="font-medium text-xs uppercase">{language}</span>
           </button>
         </div>
