@@ -26,12 +26,6 @@ export function SiteHeaderEmotes() {
             <ArrowLeft className="w-4 h-4 text-purple-400" />
             <span>Portfólio</span>
           </Link>
-          <a href="#top" className="font-sans text-sm font-bold tracking-tight text-foreground flex items-center gap-2">
-            <span>Douglas</span>
-            <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-2.5 py-0.5 font-mono text-[10px] uppercase text-purple-300">
-              Emotes
-            </span>
-          </a>
         </div>
 
         {/* Desktop Navigation */}
@@ -125,17 +119,82 @@ export function SiteHeaderEmotes() {
 
 export function SiteFooterEmotes() {
   const { language } = useLanguage();
+
   return (
-    <footer className="border-t border-purple-900/30 py-10 bg-background/50">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 sm:flex-row">
-        <p className="font-sans text-xs uppercase tracking-widest text-foreground font-bold">
-          Douglas <span className="text-purple-400 font-mono text-[10px] font-normal border border-purple-500/30 bg-purple-500/10 rounded px-1.5 py-0.5 ml-1">Emotes Studio</span>
-        </p>
-        <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-          {language === "pt"
-            ? `Emotes personalizados para Twitch & Discord · ${new Date().getFullYear()}`
-            : `Custom emotes for Twitch & Discord · ${new Date().getFullYear()}`}
-        </p>
+    <footer className="border-t border-purple-900/30 bg-purple-950/10 pt-16 pb-28 sm:pb-16 select-none">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 pb-12 border-b border-purple-900/30">
+          {/* Brand Col */}
+          <div className="space-y-4 sm:col-span-2 lg:col-span-2">
+            <a href="#top" className="inline-flex items-center gap-2 font-sans text-base font-bold tracking-tight text-foreground">
+              <span>Douglas</span>
+              <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-2.5 py-0.5 font-mono text-[10px] uppercase text-purple-300">
+                Emotes Studio
+              </span>
+            </a>
+            <p className="max-w-sm text-xs leading-relaxed text-muted-foreground">
+              {language === "pt"
+                ? "Ilustrações e emotes personalizados sob medida para Twitch & Discord. Transformando seu chat e fortalecendo sua comunidade com artes exclusivas."
+                : "Tailor-made custom illustrations and emotes for Twitch & Discord. Elevating your chat and community with unique art."}
+            </p>
+          </div>
+
+          {/* Quick Links Col */}
+          <div className="space-y-3">
+            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-purple-300">
+              Navegação
+            </h4>
+            <ul className="space-y-2 font-mono text-xs text-muted-foreground">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} className="hover:text-purple-400 transition-colors">
+                    {language === "pt" ? l.labelPt : l.labelEn}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <Link to="/" className="hover:text-purple-400 transition-colors">
+                  ← {language === "pt" ? "Portfólio Principal" : "Main Portfolio"}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* CTA Col */}
+          <div className="space-y-3">
+            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-purple-300">
+              {language === "pt" ? "Encomendas" : "Orders"}
+            </h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              {language === "pt"
+                ? "Atendimento direto no WhatsApp para tirar dúvidas, orçamentos e prazos."
+                : "Direct support via WhatsApp for quotes, questions and timeframe."}
+            </p>
+            <a
+              href={waLinkForEmotes(
+                language === "pt"
+                  ? "Olá, Douglas! Vim pelo rodapé e quero encomendar emotes."
+                  : "Hi Douglas! I came from the footer and want to order emotes."
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-purple-600/90 hover:bg-purple-600 px-4 py-2 font-mono text-xs font-semibold text-white shadow-md shadow-purple-600/20 transition-all hover:scale-105"
+            >
+              <span>{language === "pt" ? "Falar no WhatsApp" : "Chat on WhatsApp"}</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom copyright row */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <p className="font-mono text-[11px] text-muted-foreground">
+            © {new Date().getFullYear()} Douglas Emotes Studio. {language === "pt" ? "Todos os direitos reservados." : "All rights reserved."}
+          </p>
+          <p className="font-mono text-[11px] text-purple-400/80">
+            {language === "pt" ? "Feito para streamers & criadores ✨" : "Built for streamers & creators ✨"}
+          </p>
+        </div>
       </div>
     </footer>
   );

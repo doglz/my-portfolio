@@ -25,8 +25,8 @@ const faqs = [
   {
     qPt: "Qual é o prazo médio de entrega?",
     qEn: "What is the average delivery timeframe?",
-    aPt: "Emotes individuais e pacotes menores (até 6) são entregues em 48h a 72h. Pacotes completos de 12 a 24 emotes levam de 5 a 8 dias úteis.",
-    aEn: "Single emotes and small packs (up to 6) are delivered within 48h to 72h. Packs of 12-24 emotes take 5-8 business days.",
+    aPt: "Emotes individuais e pacotes menores (até 6) são entregues em até 24h. Pacotes completos de 12 a 24 emotes levam de 2 a 4 dias.",
+    aEn: "Single emotes and small packs (up to 6) are delivered within 24h. Packs of 12-24 emotes take 2-4 business days.",
   },
 ];
 

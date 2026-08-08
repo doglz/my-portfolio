@@ -16,6 +16,7 @@ export function HeroEmotes() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center text-center lg:items-start lg:text-left"
         >
           {/* Badge */}
           <motion.div
@@ -91,14 +92,14 @@ export function HeroEmotes() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="my-8 h-px w-full max-w-md bg-purple-900/40 origin-left"
+            className="my-8 h-px w-full max-w-md bg-purple-900/40 origin-center lg:origin-left"
           />
 
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg"
+            className="max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg text-center lg:text-left"
           >
             {language === "pt"
               ? "Emotes personalizados sob medida para Twitch e Discord. Destaque sua personalidade e fortaleça sua comunidade com artes exclusivas."
@@ -109,7 +110,7 @@ export function HeroEmotes() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto"
           >
             <motion.a
               whileHover={{ scale: 1.03, y: -2 }}
@@ -122,7 +123,7 @@ export function HeroEmotes() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-purple-600 px-8 py-4 text-sm font-semibold text-white shadow-xl shadow-purple-600/30"
+              className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-purple-600 px-8 py-4 text-sm font-semibold text-white shadow-xl shadow-purple-600/30 w-full sm:w-auto text-center"
             >
               <span>{language === "pt" ? "Quero meus emotes" : "Get my emotes"}</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -132,7 +133,7 @@ export function HeroEmotes() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               href="#galeria"
-              className="inline-flex items-center gap-3 rounded-full border border-purple-900/40 bg-purple-950/20 backdrop-blur px-8 py-4 text-sm font-semibold text-foreground/90 transition-colors duration-300 hover:border-purple-500/60 hover:text-foreground"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-purple-900/40 bg-purple-950/20 backdrop-blur px-8 py-4 text-sm font-semibold text-foreground/90 transition-colors duration-300 hover:border-purple-500/60 hover:text-foreground w-full sm:w-auto text-center"
             >
               {language === "pt" ? "Ver galeria" : "View gallery"}
             </motion.a>
@@ -142,16 +143,16 @@ export function HeroEmotes() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-14 flex flex-wrap gap-x-10 gap-y-6 border-t border-purple-900/30 pt-8"
+            className="mt-12 grid grid-cols-3 w-full max-w-lg gap-2 text-center border-t border-purple-900/30 pt-8"
           >
             {[
-              ["+400", language === "pt" ? "emotes entregues" : "delivered emotes"],
-              ["72h", language === "pt" ? "prazo médio" : "avg delivery time"],
+              ["+200", language === "pt" ? "emotes entregues" : "delivered emotes"],
+              ["24h", language === "pt" ? "para a entrega" : "delivery time"],
               ["100%", language === "pt" ? "arte original" : "original art"],
             ].map(([value, label]) => (
-              <div key={label}>
-                <dt className="font-sans text-2xl font-bold text-foreground">{value}</dt>
-                <dd className="mt-1 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+              <div key={label} className="flex flex-col items-center">
+                <dt className="font-sans text-xl sm:text-2xl font-bold text-foreground">{value}</dt>
+                <dd className="mt-1 font-mono text-[9px] sm:text-[11px] uppercase tracking-wider text-muted-foreground leading-tight">
                   {label}
                 </dd>
               </div>

@@ -114,9 +114,9 @@ export const heroEmotes: EmoteItem[] = [
   marinEmotes[2],  // Marin Coração
   gojoEmotes[19],  // Gojo Comemorando
   marinEmotes[8],  // Marin Like
-  gojoEmotes[15],  // Gojo Chocado
+  gojoEmotes[14],  // Gojo Facepalm
   marinEmotes[19], // Marin Dinheiro
-  gojoEmotes[16],  // Gojo Saudação
+  gojoEmotes[18],  // Gojo Lurk
   marinEmotes[9],  // Marin Cool
 ];
 

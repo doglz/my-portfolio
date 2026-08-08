@@ -118,10 +118,10 @@ function MagneticEmoteCard({ emote, index }: { emote: EmoteItem; index: number }
                   ? "border-emerald-500 bg-emerald-500/20 text-emerald-300"
                   : "border-purple-500/30 bg-purple-500/10 text-purple-300 hover:bg-purple-600 hover:text-white hover:border-purple-600 hover:shadow-md hover:shadow-purple-600/20 active:scale-95"
               }`}
-              title="Baixar Grátis em 112x112px"
+              title="Baixar Emote"
             >
               <Download className="h-3 w-3" />
-              <span>{downloaded ? "Baixado!" : "Baixar (Grátis)"}</span>
+              <span>{downloaded ? "Baixado!" : "Baixar"}</span>
             </button>
           </figcaption>
         </motion.figure>
@@ -144,22 +144,22 @@ export function GalleryEmotes() {
   return (
     <section id="galeria" className="relative border-t border-purple-900/30 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+        <div className="mb-12 flex flex-col items-center text-center justify-between gap-6 lg:flex-row lg:items-end lg:text-left">
           <div>
-            <SectionLabel>{language === "pt" ? "download grátis" : "free download"}</SectionLabel>
+            <SectionLabel>{language === "pt" ? "galeria" : "gallery"}</SectionLabel>
             <h2 className="max-w-xl font-sans text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               {language === "pt"
-                ? "Baixe Emotes Gratuitamente em 112px"
-                : "Download Free Emotes in 112px"}
+                ? "Galeria de Emotes"
+                : "Emotes Gallery"}
             </h2>
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex items-center gap-2 rounded-full border border-purple-900/40 bg-purple-950/20 p-1 font-mono text-xs">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 rounded-2xl sm:rounded-full border border-purple-900/40 bg-purple-950/20 p-1.5 font-mono text-xs w-full sm:w-auto">
             <button
               type="button"
               onClick={() => setActiveFilter("compact")}
-              className={`rounded-full px-4 py-1.5 transition-all cursor-pointer ${
+              className={`rounded-full px-3.5 py-1.5 transition-all cursor-pointer ${
                 activeFilter === "compact"
                   ? "bg-purple-600 font-semibold text-white shadow-md shadow-purple-600/30"
                   : "text-muted-foreground hover:text-foreground"
@@ -170,7 +170,7 @@ export function GalleryEmotes() {
             <button
               type="button"
               onClick={() => setActiveFilter("gojo")}
-              className={`rounded-full px-4 py-1.5 transition-all cursor-pointer ${
+              className={`rounded-full px-3.5 py-1.5 transition-all cursor-pointer ${
                 activeFilter === "gojo"
                   ? "bg-purple-600 font-semibold text-white shadow-md shadow-purple-600/30"
                   : "text-muted-foreground hover:text-foreground"
@@ -181,7 +181,7 @@ export function GalleryEmotes() {
             <button
               type="button"
               onClick={() => setActiveFilter("marin")}
-              className={`rounded-full px-4 py-1.5 transition-all cursor-pointer ${
+              className={`rounded-full px-3.5 py-1.5 transition-all cursor-pointer ${
                 activeFilter === "marin"
                   ? "bg-purple-600 font-semibold text-white shadow-md shadow-purple-600/30"
                   : "text-muted-foreground hover:text-foreground"
