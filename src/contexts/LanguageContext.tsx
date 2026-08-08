@@ -2,6 +2,12 @@ import { createContext, useContext, useState, ReactNode } from "react";
 
 type Language = "pt" | "en";
 
+export const resolveInitialLanguage = (navigatorLanguage?: string | null): Language => {
+  const locale = navigatorLanguage?.toLowerCase() ?? "";
+  if (locale.startsWith("pt")) return "pt";
+  return "en";
+};
+
 const translations = {
   pt: {
 
@@ -337,7 +343,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>(() => resolveInitialLanguage(typeof navigator !== "undefined" ? navigator.language : ""));
   const t = translations[language];
 
   return (
