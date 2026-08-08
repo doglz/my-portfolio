@@ -1,6 +1,3 @@
-import { CustomEmotesCursor } from "@/components/emotes/CustomEmotesCursor";
+export { CustomEmotesCursor as CustomWebCursor } from "@/components/emotes/CustomEmotesCursor";
 
-export function CustomWebCursor() {
-  return <CustomEmotesCursor variant="default" />;
-}
 
