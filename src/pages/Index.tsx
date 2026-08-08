@@ -14,6 +14,7 @@ import projectBazeAcademy from "@/assets/project-baze-academy.png";
 import ProjectCard from "@/components/ProjectCard";
 import Marquee from "@/components/Marquee";
 import WhatsAppFloat, { WhatsAppIcon } from "@/components/WhatsAppFloat";
+import { Header } from "@/components/Header";
 import { waLink, waLinkForPlan } from "@/lib/whatsapp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -262,82 +263,8 @@ const Index = () => {
         <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] sm:w-[1000px] sm:h-[1000px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.04)_0%,transparent_70%)]" />
         <div className="absolute top-[60%] left-[-10%] w-[500px] h-[500px] sm:w-[800px] sm:h-[800px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_70%)]" />
       </div>
-      {/* Nav */}
-      <motion.nav
-        initial={{ y: -80 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
-          <a href="#" aria-label="Voltar para o topo" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-lg font-bold tracking-tight cursor-pointer">
-            <span className="text-primary">&lt;</span>Douglas<span className="text-primary">/&gt;</span>
-          </a>
-          <div className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="relative hover:text-primary transition-colors duration-300 after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-4px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-              >
-                {link.label}
-              </a>
-            ))}
-            <button
-              onClick={() => setLanguage(language === "en" ? "pt" : "en")}
-              className="flex items-center gap-1.5 hover:text-primary transition-colors text-muted-foreground hover:bg-secondary/50 px-2 py-1 rounded-md"
-              aria-label="Toggle language"
-            >
-              <Globe className="w-4 h-4" />
-              <span className="font-medium text-xs uppercase">{language}</span>
-            </button>
-          </div>
-          <div className="flex items-center gap-3 md:hidden">
-            <button
-              onClick={() => setLanguage(language === "en" ? "pt" : "en")}
-              className="flex items-center gap-1.5 hover:text-primary transition-colors text-muted-foreground hover:bg-secondary/50 px-2 py-1 rounded-md"
-              aria-label="Toggle language"
-            >
-              <Globe className="w-4 h-4" />
-              <span className="font-medium text-xs uppercase">{language}</span>
-            </button>
-            <button
-              className="text-muted-foreground"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
-              aria-expanded={mobileMenuOpen}
-              aria-controls="mobile-menu"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-        </div>
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              id="mobile-menu"
-              className="md:hidden overflow-hidden border-t border-border/50 bg-background/95 backdrop-blur-xl"
-            >
-              <div className="flex flex-col gap-4 px-6 py-4 text-sm text-muted-foreground">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.nav>
+      {/* Header Nav */}
+      <Header />
 
       {/* Hero */}
       <section ref={heroRef} className="min-h-[100dvh] flex flex-col items-center justify-center relative px-6 overflow-hidden pt-24 pb-8">
