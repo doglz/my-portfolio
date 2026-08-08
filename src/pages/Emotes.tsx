@@ -58,9 +58,9 @@ export default function Emotes() {
     }
     canonicalLink.setAttribute("href", `${window.location.origin}/emotes`);
 
-    // Initialize Lenis Smooth Scroll specifically for /emotes
+    // Initialize Lenis Smooth Scroll specifically for /emotes (optimized)
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.85,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
@@ -77,7 +77,7 @@ export default function Emotes() {
     };
 
     gsap.ticker.add(updateLenis);
-    gsap.ticker.lagSmoothing(0);
+    gsap.ticker.lagSmoothing(500, 33);
 
     return () => {
       gsap.ticker.remove(updateLenis);

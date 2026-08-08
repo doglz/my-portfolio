@@ -30,6 +30,7 @@ export function CustomEmotesCursor({ variant = "purple" }: CustomEmotesCursorPro
     const handleMouseDown = () => setIsClicking(true);
     const handleMouseUp = () => setIsClicking(false);
 
+    let currentHovered = false;
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
@@ -38,7 +39,10 @@ export function CustomEmotesCursor({ variant = "purple" }: CustomEmotesCursorPro
       const isInteractive = Boolean(
         target.closest("a, button, [role='button'], input, select, textarea, [data-cursor='hover']")
       );
-      setIsHovered(isInteractive);
+      if (isInteractive !== currentHovered) {
+        currentHovered = isInteractive;
+        setIsHovered(isInteractive);
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
@@ -71,7 +75,7 @@ export function CustomEmotesCursor({ variant = "purple" }: CustomEmotesCursorPro
   return (
     <motion.div
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-[9999] hidden md:flex items-center justify-center w-8 h-8"
+      className="pointer-events-none fixed left-0 top-0 z-[9999] hidden md:flex items-center justify-center w-8 h-8 transform-gpu will-change-transform"
       style={{
         x: cursorX,
         y: cursorY,

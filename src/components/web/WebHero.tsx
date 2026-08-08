@@ -31,16 +31,16 @@ export function WebHero() {
   return (
     <section ref={root} className="relative overflow-hidden pt-36 pb-24 lg:pt-48 lg:pb-36">
       {/* Luminous Purple Glow Backdrop */}
-      <div className="pointer-events-none absolute left-1/2 top-1/4 h-[520px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-600/15 blur-[160px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/4 h-[520px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-600/15 blur-[160px] transform-gpu will-change-transform" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <p data-wh-fade className="mb-6 font-mono text-xs uppercase tracking-[0.28em] text-purple-400">
           Sites &amp; landing pages para streamers
         </p>
 
-        <h1 className="max-w-4xl font-display text-[clamp(2.6rem,7vw,5.6rem)] font-bold leading-[0.94] text-balance-tight text-foreground">
+        <h1 className="max-w-4xl font-display text-[clamp(2.6rem,7vw,5.6rem)] font-bold leading-[1.04] text-balance-tight text-foreground pb-2">
           {lines.map((line, i) => (
-            <span key={line} data-wh-line className="block overflow-hidden">
+            <span key={line} data-wh-line className="block overflow-hidden pb-2 pt-0.5">
               <span className="block">
                 {i === 2 ? <em className="not-italic text-purple-400">{line}</em> : line}
               </span>

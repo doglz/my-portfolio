@@ -31,7 +31,7 @@ export function WebCta() {
 
   return (
     <section ref={root} id="contato-web" className="relative overflow-hidden border-t border-white/10 py-28 lg:py-40">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[720px] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-600/20 blur-[140px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[720px] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-600/20 blur-[140px] transform-gpu will-change-transform" />
       <img
         data-wcta-emote
         src={emotes.estrelas.src}
