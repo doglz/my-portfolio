@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -11,32 +10,12 @@ interface SectionItem {
 
 export function SectionDotNav() {
   const { language } = useLanguage();
-  const location = useLocation();
   const [activeSection, setActiveSection] = useState<string>("");
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   const isPt = language === "pt";
 
   const getSectionsForRoute = (): SectionItem[] => {
-    if (location.pathname === "/emotes") {
-      return [
-        { id: "galeria", labelPt: "Galeria", labelEn: "Gallery" },
-        { id: "como-funciona", labelPt: "Diferenciais", labelEn: "Features" },
-        { id: "processo-emotes", labelPt: "Processo", labelEn: "Process" },
-        { id: "planos", labelPt: "Planos", labelEn: "Pricing" },
-        { id: "faq", labelPt: "FAQ", labelEn: "FAQ" },
-        { id: "contato", labelPt: "Contato", labelEn: "Contact" },
-      ];
-    }
-    if (location.pathname === "/website") {
-      return [
-        { id: "showcase", labelPt: "Projetos", labelEn: "Showcase" },
-        { id: "servicos", labelPt: "Diferenciais", labelEn: "Features" },
-        { id: "processo-web", labelPt: "Processo", labelEn: "Process" },
-        { id: "planos-web", labelPt: "Planos", labelEn: "Pricing" },
-        { id: "contato-web", labelPt: "Contato", labelEn: "Contact" },
-      ];
-    }
     // Main portfolio route
     return [
       { id: "sobre", labelPt: "Sobre", labelEn: "About" },

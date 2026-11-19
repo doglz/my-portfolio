@@ -94,7 +94,6 @@ const Index = () => {
     { href: "#projetos", label: t.navProjects },
     { href: "#processo", label: t.navProcess },
     { href: "#planos", label: t.navPricing },
-    { href: "/emotes", label: "Emotes" },
     { href: "#contato", label: t.navContact },
   ];
 

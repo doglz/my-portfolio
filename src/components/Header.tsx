@@ -19,8 +19,6 @@ export function Header({ customLinks }: HeaderProps = {}) {
   const getDefaultLinks = () => {
     return [
       { href: "/", label: isPt ? "Portfólio" : "Portfolio" },
-      { href: "/website", label: isPt ? "Sites para Streamers" : "Streamer Websites" },
-      { href: "/emotes", label: isPt ? "Emotes para Streamers" : "Streamer Emotes" },
     ];
   };
 

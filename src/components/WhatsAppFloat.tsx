@@ -14,26 +14,18 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 interface WhatsAppFloatProps {
-  number?: string;
-  variant?: "green" | "purple";
   message?: string;
 }
 
 const WhatsAppFloat = ({
-  number,
-  variant = "green",
   message = "Olá, Douglas! Vim pelo site e queria saber mais sobre os serviços.",
 }: WhatsAppFloatProps) => {
-  const bgClass =
-    variant === "purple"
-      ? "bg-purple-600 shadow-lg shadow-purple-600/40 hover:shadow-purple-600/60"
-      : "bg-[#25D366] shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50";
-
-  const pingClass = variant === "purple" ? "bg-purple-500" : "bg-[#25D366]";
+  const bgClass = "bg-[#25D366] shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50";
+  const pingClass = "bg-[#25D366]";
 
   return (
     <motion.a
-      href={waLink(message, number)}
+      href={waLink(message)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
