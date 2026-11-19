@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Github, ExternalLink, Layout } from "lucide-react";
+import SitePreview from "@/components/SitePreview";
+import { Github, ExternalLink } from "lucide-react";
 import { CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -7,13 +8,12 @@ interface ProjectCardProps {
   title: string;
   description: string;
   tags: string[];
-  image: string | null;
   github: string | null;
   live: string;
   isActive?: boolean;
 }
 
-const ProjectCard = ({ title, description, tags, image, github, live, isActive = false }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, tags, github, live, isActive = false }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const { t } = useLanguage();
 
@@ -43,20 +43,8 @@ const ProjectCard = ({ title, description, tags, image, github, live, isActive =
           minHeight: "460px",
         }}
       >
-        <div className="h-60 bg-secondary/50 flex items-center justify-center border-b border-border/50 overflow-hidden">
-          {image ? (
-            <img
-              src={image}
-              alt={`Prévia do projeto ${title}`}
-              width={800}
-              height={450}
-              loading={isActive ? "eager" : "lazy"}
-              decoding="async"
-              className="block w-full h-full flex-none object-cover object-top pointer-events-none select-none"
-            />
-          ) : (
-            <Layout className="w-12 h-12 text-muted-foreground/30" />
-          )}
+        <div className="h-60 border-b border-border/50 overflow-hidden">
+          <SitePreview url={live} title={title} eager={isActive} />
         </div>
         <CardContent className="p-6 space-y-4 flex flex-1 flex-col">
           <h3 className="text-lg font-semibold">{title}</h3>

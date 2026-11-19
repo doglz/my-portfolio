@@ -6,11 +6,6 @@ import { Card } from "@/components/ui/card";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useState, useCallback, useEffect, type FormEvent } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import projectRobuxStation from "@/assets/project-robux-station.png";
-import projectNowas from "@/assets/project-nowas.png";
-import projectBella from "@/assets/project-bella.png";
-import projectVision from "@/assets/project-vision.png";
-import projectBazeAcademy from "@/assets/project-baze-academy.png";
 import ProjectCard from "@/components/ProjectCard";
 import Marquee from "@/components/Marquee";
 import WhatsAppFloat, { WhatsAppIcon } from "@/components/WhatsAppFloat";
@@ -102,7 +97,6 @@ const Index = () => {
       title: "Nowas",
       description: t.projectNowasDesc,
       tags: ["Marcenaria", "São Paulo"],
-      image: projectNowas,
       github: null,
       live: "https://nowas-lp.vercel.app/",
     },
@@ -110,7 +104,6 @@ const Index = () => {
       title: "Baze Academy",
       description: t.projectBazeAcademyDesc,
       tags: ["Jiu-jitsu", "Barra de São João"],
-      image: projectBazeAcademy,
       github: null,
       live: "https://bazeacademy.com.br/barrasj/",
     },
@@ -118,7 +111,6 @@ const Index = () => {
       title: "Bella Glam Design",
       description: t.projectBellaDesc,
       tags: ["Beleza", "Agendamento"],
-      image: projectBella,
       github: null,
       live: "https://bellaglamdesign.vercel.app",
     },
@@ -126,7 +118,6 @@ const Index = () => {
       title: "Studio Vision",
       description: t.projectVisionDesc,
       tags: ["Institucional", "Audiovisual"],
-      image: projectVision,
       github: null,
       live: "https://studiovision.site",
     },
@@ -134,7 +125,6 @@ const Index = () => {
       title: "Robux Station",
       description: t.projectRobuxDesc,
       tags: ["E-commerce", "Discord"],
-      image: projectRobuxStation,
       github: null,
       live: "https://robuxstationdc.com/",
     },
@@ -419,7 +409,6 @@ const Index = () => {
                         title={project.title}
                         description={project.description}
                         tags={project.tags}
-                        image={project.image}
                         github={project.github}
                         live={project.live}
                         isActive={selectedProjectIndex === i}
