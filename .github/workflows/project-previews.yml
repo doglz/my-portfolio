@@ -1,0 +1,42 @@
+name: Update project previews
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - src/data/project-sites.json
+      - scripts/screenshot-projects.mjs
+      - .github/workflows/project-previews.yml
+  schedule:
+    - cron: "17 6 * * 1" # every Monday
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: project-previews
+  cancel-in-progress: true
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-save --no-audit --no-fund playwright@1.57.0
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/screenshot-projects.mjs
+      - name: Commit updated previews
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git add public/previews
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: update project site previews"
+            git push
+          fi

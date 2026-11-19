@@ -95,6 +95,7 @@ const Index = () => {
   const projects = [
     {
       title: "Nowas",
+      slug: "nowas",
       description: t.projectNowasDesc,
       tags: ["Marcenaria", "São Paulo"],
       github: null,
@@ -102,6 +103,7 @@ const Index = () => {
     },
     {
       title: "Baze Academy",
+      slug: "baze-academy",
       description: t.projectBazeAcademyDesc,
       tags: ["Jiu-jitsu", "Barra de São João"],
       github: null,
@@ -109,6 +111,7 @@ const Index = () => {
     },
     {
       title: "Bella Glam Design",
+      slug: "bella-glam",
       description: t.projectBellaDesc,
       tags: ["Beleza", "Agendamento"],
       github: null,
@@ -116,6 +119,7 @@ const Index = () => {
     },
     {
       title: "Studio Vision",
+      slug: "studio-vision",
       description: t.projectVisionDesc,
       tags: ["Institucional", "Audiovisual"],
       github: null,
@@ -123,6 +127,7 @@ const Index = () => {
     },
     {
       title: "Robux Station",
+      slug: "robux-station",
       description: t.projectRobuxDesc,
       tags: ["E-commerce", "Discord"],
       github: null,
@@ -407,6 +412,7 @@ const Index = () => {
                     <div className="mx-auto h-full w-[90%] max-w-[340px] sm:w-full sm:max-w-none transition-opacity duration-300" style={{ opacity: selectedProjectIndex === i ? 1 : 0.7 }}>
                       <ProjectCard
                         title={project.title}
+                        slug={project.slug}
                         description={project.description}
                         tags={project.tags}
                         github={project.github}

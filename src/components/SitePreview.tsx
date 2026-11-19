@@ -1,33 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Globe } from "lucide-react";
 
 interface SitePreviewProps {
+  slug: string;
   url: string;
   title: string;
   eager?: boolean;
 }
 
-// Live screenshots of the first screen (above the fold) of each project's site.
-// Sources are tried in order; if one fails, the next one is used.
-const previewSources = (url: string) => {
-  const encoded = encodeURIComponent(url);
-  return [
-    `https://api.microlink.io/?url=${encoded}&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1440&viewport.height=900&waitForTimeout=1500`,
-    `https://s0.wp.com/mshots/v1/${encoded}?w=1440&h=900`,
-  ];
-};
-
-const SitePreview = ({ url, title, eager = false }: SitePreviewProps) => {
-  const sources = previewSources(url);
-  const [sourceIndex, setSourceIndex] = useState(0);
+// Shows the first screen of the project's real site.
+// Screenshots live in public/previews/<slug>.jpg and are refreshed
+// automatically by .github/workflows/project-previews.yml.
+const SitePreview = ({ slug, url, title, eager = false }: SitePreviewProps) => {
   const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setSourceIndex(0);
-    setLoaded(false);
-  }, [url]);
-
-  const failed = sourceIndex >= sources.length;
+  const [failed, setFailed] = useState(false);
   const host = new URL(url).hostname.replace(/^www\./, "");
 
   return (
@@ -51,19 +37,14 @@ const SitePreview = ({ url, title, eager = false }: SitePreviewProps) => {
         </div>
       ) : (
         <img
-          key={sources[sourceIndex]}
-          src={sources[sourceIndex]}
+          src={`/previews/${slug}.jpg`}
           alt={`Prévia do site ${title}`}
           width={1440}
           height={900}
           loading={eager ? "eager" : "lazy"}
           decoding="async"
-          referrerPolicy="no-referrer"
           onLoad={() => setLoaded(true)}
-          onError={() => {
-            setLoaded(false);
-            setSourceIndex((i) => i + 1);
-          }}
+          onError={() => setFailed(true)}
           className={`absolute inset-x-0 top-7 bottom-0 block h-[calc(100%-1.75rem)] w-full object-cover object-top pointer-events-none select-none transition-opacity duration-500 ${
             loaded ? "opacity-100" : "opacity-0"
           }`}

@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ProjectCardProps {
   title: string;
+  slug: string;
   description: string;
   tags: string[];
   github: string | null;
@@ -13,7 +14,7 @@ interface ProjectCardProps {
   isActive?: boolean;
 }
 
-const ProjectCard = ({ title, description, tags, github, live, isActive = false }: ProjectCardProps) => {
+const ProjectCard = ({ title, slug, description, tags, github, live, isActive = false }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const { t } = useLanguage();
 
@@ -44,7 +45,7 @@ const ProjectCard = ({ title, description, tags, github, live, isActive = false 
         }}
       >
         <div className="h-60 border-b border-border/50 overflow-hidden">
-          <SitePreview url={live} title={title} eager={isActive} />
+          <SitePreview slug={slug} url={live} title={title} eager={isActive} />
         </div>
         <CardContent className="p-6 space-y-4 flex flex-1 flex-col">
           <h3 className="text-lg font-semibold">{title}</h3>
